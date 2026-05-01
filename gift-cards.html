@@ -109,7 +109,7 @@
   position:relative;width:100%;aspect-ratio:1.58/1;
   background:linear-gradient(140deg,#ff8a3d 0%,#ff771d 45%,#e85d0a 100%);
   border-radius:22px;overflow:hidden;
-  padding:28px 32px;display:flex;flex-direction:column;justify-content:space-between;
+  padding:28px 32px;display:flex;flex-direction:column;justify-content:space-between;gap:18px;
   color:#fff;
   box-shadow:
     0 50px 90px -24px rgba(255,119,29,.45),
@@ -118,6 +118,7 @@
     0 0 0 6px rgba(0,0,0,.04);
   transform:rotate(-3deg);transition:transform .6s var(--e);
 }
+@media(max-width:520px){.gc-card{aspect-ratio:auto;padding:22px 24px}.gc-card__amt{font-size:64px}}
 .gc-card-wrap:hover .gc-card{transform:rotate(-1deg) scale(1.02)}
 
 /* Subtle dot pattern texture */

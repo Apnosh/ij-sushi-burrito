@@ -74,9 +74,10 @@
 .hero__inner{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) 600px;gap:32px;align-items:start;width:100%;padding-top:20px}
 @media(max-width:1280px){.hero__inner{grid-template-columns:minmax(0,1fr) 520px;gap:24px}}
 @media(max-width:1100px){.hero__inner{grid-template-columns:minmax(0,1fr) 460px}}
-@media(max-width:1000px){.hero__inner{grid-template-columns:1fr;gap:60px;text-align:left;padding-top:0}}
+@media(max-width:1000px){.hero__inner{grid-template-columns:minmax(0,1fr);gap:60px;text-align:left;padding-top:0}}
 
-.hero__copy{position:relative}
+.hero__copy{position:relative;min-width:0}
+.hero__visual{min-width:0}
 
 /* Top mark — establishment line */
 .hero__est{
@@ -239,9 +240,10 @@
 
 /* Clean offerings caption strip — single line */
 .hero__offerings{
-  display:flex;align-items:center;gap:18px;flex-wrap:nowrap;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;row-gap:10px;
   margin-bottom:28px;
 }
+@media(max-width:520px){.hero__offerings{gap:10px 14px;font-size:11px}.hero__offering{font-size:11px}.hero__offering-divider{display:none}}
 .hero__offering{
   display:inline-flex;align-items:center;gap:10px;
   font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
@@ -697,10 +699,11 @@
 /* Step 4 sauces */
 .byo-sauces{display:flex;gap:12px;flex-wrap:wrap}
 .byo-sauce{
-  flex:1;min-width:120px;display:flex;align-items:center;gap:14px;
+  flex:1 1 100%;min-width:0;display:flex;align-items:center;gap:14px;
   padding:14px 18px;border-radius:var(--r);
   background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
 }
+@media(min-width:600px){.byo-sauce{flex:1 1 140px}}
 .byo-sauce__dot{width:36px;height:36px;border-radius:50%;flex-shrink:0;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35),0 4px 10px rgba(0,0,0,.18);background-clip:padding-box;overflow:hidden;position:relative}
 .byo-sauce__dot--mayo{background:radial-gradient(circle at 30% 30%,#ffe8c4,#ffb869)}
 .byo-sauce__dot--eel{background:radial-gradient(circle at 30% 30%,#5a3a1a,#1a0c00)}
