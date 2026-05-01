@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#7ABA19">
+<title>Locations — IJ Sushi Burrito</title>
+<meta name="description" content="Find your nearest IJ Sushi Burrito. 13+ locations across Washington, Oregon, California and New Jersey.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Locations — IJ Sushi Burrito">
+<meta property="og:description" content="13+ locations across WA, OR, CA & NJ.">
+<meta property="og:image" content="assets/logo.png">
+
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css?v=3">
+
+<style>
+/* ════════════ LOCATIONS PAGE ════════════ */
+
+/* Hero header — matches the dark immersive Fresh section treatment */
+.locs-hero{
+  position:relative;background:var(--ink);color:#fff;
+  min-height:480px;display:flex;align-items:center;
+  overflow:hidden;padding:calc(var(--nav-h) + 80px) 0 80px;
+}
+.locs-hero__bg{
+  position:absolute;inset:0;z-index:0;overflow:hidden;
+  background:
+    /* faint grid lines */
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0/52px 52px,
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px) 0 0/52px 52px,
+    /* color glows */
+    radial-gradient(ellipse 50% 80% at 80% 50%,rgba(122,186,25,.18) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 70% at 15% 30%,rgba(255,119,29,.14) 0%,transparent 60%),
+    var(--ink);
+}
+.locs-hero__overlay{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.25) 60%,rgba(0,0,0,.4) 100%);
+}
+/* Map "pins" — scattered dots with pulsing rings */
+.locs-pin{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--brand);box-shadow:0 0 18px rgba(122,186,25,.7);z-index:0}
+.locs-pin::before,.locs-pin::after{content:'';position:absolute;inset:-12px;border-radius:50%;border:1.5px solid rgba(122,186,25,.5);animation:pinPulse 2.6s ease-out infinite}
+.locs-pin::after{animation-delay:1.3s}
+.locs-pin--orange{background:var(--orange);box-shadow:0 0 18px rgba(255,119,29,.7)}
+.locs-pin--orange::before,.locs-pin--orange::after{border-color:rgba(255,119,29,.5)}
+.locs-pin--small{width:8px;height:8px;opacity:.55}
+.locs-pin--small::before,.locs-pin--small::after{display:none}
+@keyframes pinPulse{0%{transform:scale(.6);opacity:.85}100%{transform:scale(2.4);opacity:0}}
+.locs-pin--p1{top:22%;right:14%}
+.locs-pin--p2{top:62%;right:30%;width:10px;height:10px}
+.locs-pin--p3{top:38%;right:6%}
+.locs-pin--s1{top:18%;left:22%}
+.locs-pin--s2{top:54%;left:8%}
+.locs-pin--s3{top:78%;right:18%}
+.locs-pin--s4{top:30%;right:42%}
+.locs-pin--s5{top:70%;right:6%}
+.locs-pin--s6{top:14%;left:40%}
+@media(max-width:900px){.locs-pin{display:none}}
+.locs-hero__inner{
+  position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:0 48px;width:100%;
+}
+@media(max-width:900px){.locs-hero__inner{padding:0 28px}}
+.locs-hero__eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(122,186,25,.95);margin-bottom:24px;
+}
+.locs-hero__eyebrow::before{content:'';width:32px;height:1.5px;background:var(--brand)}
+.locs-hero h1{
+  color:#fff;font-family:var(--fm-display);
+  font-size:clamp(48px,7vw,120px);font-weight:900;
+  letter-spacing:-.045em;line-height:.92;margin:0;text-transform:uppercase;
+}
+.locs-hero h1 em{
+  font-style:italic;font-weight:900;color:var(--brand);
+  position:relative;display:inline-block;text-transform:uppercase;
+}
+.locs-hero h1 em::after{
+  content:'';position:absolute;left:-.04em;right:-.04em;bottom:.05em;
+  height:.16em;background:rgba(122,186,25,.28);z-index:-1;
+}
+.locs-hero__sub{
+  font-size:17px;color:rgba(255,255,255,.78);line-height:1.65;font-weight:500;
+  max-width:420px;margin:0 0 24px;
+}
+.locs-hero__stats{
+  display:flex;gap:36px;flex-wrap:wrap;
+}
+.locs-hero__stat{
+  border-left:1px solid rgba(255,255,255,.18);padding-left:18px;
+}
+.locs-hero__stat strong{
+  display:block;font-family:var(--fm-display);font-size:32px;font-weight:900;
+  color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:4px;
+}
+.locs-hero__stat strong em{color:var(--brand);font-style:normal}
+.locs-hero__stat span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+
+/* State filter tabs */
+.locs-filter{
+  position:sticky;top:var(--nav-h);z-index:50;
+  background:rgba(255,255,255,.96);backdrop-filter:saturate(180%) blur(24px);
+  border-bottom:1px solid var(--ink7);
+}
+.locs-filter__inner{
+  max-width:1320px;margin:0 auto;padding:14px 48px;
+  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;
+}
+.locs-filter__inner::-webkit-scrollbar{display:none}
+@media(max-width:900px){.locs-filter__inner{padding:14px 28px}}
+.locs-filter a{
+  flex-shrink:0;padding:13px 22px;min-height:44px;display:inline-flex;align-items:center;
+  border-radius:99px;
+  font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--ink3);background:transparent;
+  transition:all .2s var(--e);white-space:nowrap;
+}
+.locs-filter a:hover{background:var(--brand-t);color:var(--brand-d)}
+.locs-filter a.active{background:var(--ink);color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+
+/* Locations content */
+.locs-body{padding:96px 0 120px;background:var(--bg2)}
+.locs-body__inner{max-width:1320px;margin:0 auto;padding:0 48px}
+@media(max-width:900px){.locs-body__inner{padding:0 28px}}
+
+.loc__states{display:flex;flex-direction:column;gap:88px}
+.loc__state-row{position:relative;scroll-margin-top:calc(var(--nav-h) + 80px)}
+
+</style>
+</head>
+
+<body>
+<a href="#main" class="skip">Skip to content</a>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="IJ Sushi Burrito home">
+      <img src="assets/logo.png" alt="" width="46" height="46">
+      <span>IJ <span class="s">Sushi</span> <span class="b">Burrito</span></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav__links">
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="locations.html" aria-current="page">Locations</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gift-cards.html">Gift Cards</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav__cta">
+      <a href="locations.html" class="btn btn--outline btn--sm">Find Us</a>
+      <a href="menu.html" class="btn btn--brand btn--sm">Order Now</a>
+      <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" hidden>
+  <ul>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="locations.html">Locations</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gift-cards.html">Gift Cards</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="menu.html" class="btn btn--brand btn--lg">Order Now →</a>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="locs-hero" aria-labelledby="locs-hero-title">
+  <div class="locs-hero__bg" aria-hidden="true">
+    <span class="locs-pin locs-pin--p1"></span>
+    <span class="locs-pin locs-pin--orange locs-pin--p2"></span>
+    <span class="locs-pin locs-pin--p3"></span>
+    <span class="locs-pin locs-pin--small locs-pin--s1"></span>
+    <span class="locs-pin locs-pin--small locs-pin--s2"></span>
+    <span class="locs-pin locs-pin--small locs-pin--s3"></span>
+    <span class="locs-pin locs-pin--small locs-pin--s4"></span>
+    <span class="locs-pin locs-pin--small locs-pin--s5"></span>
+    <span class="locs-pin locs-pin--small locs-pin--s6"></span>
+  </div>
+  <div class="locs-hero__overlay"></div>
+  <div class="locs-hero__inner">
+    <div>
+      <p class="locs-hero__eyebrow">Find Us</p>
+      <h1 id="locs-hero-title">Come <em>grab</em> a roll.</h1>
+    </div>
+  </div>
+</section>
+
+<!-- STATE FILTER TABS -->
+<nav class="locs-filter" aria-label="Filter by state">
+  <div class="locs-filter__inner">
+    <a href="#washington" class="active">All Locations</a>
+    <a href="#washington">Washington</a>
+    <a href="#oregon">Oregon</a>
+    <a href="#new-jersey">New Jersey</a>
+    <a href="#california">California — Coming Soon</a>
+  </div>
+</nav>
+
+<!-- LOCATIONS BODY -->
+<section class="locs-body">
+  <div class="locs-body__inner">
+    <div class="loc__states">
+
+      <div class="loc__state-row reveal" id="washington">
+        <div class="loc__state-head">
+          <h3 class="loc__state-name"><em>Washington</em></h3>
+          <div class="loc__state-meta"><strong>5 locations</strong><span>Seattle · Lynnwood · Shoreline</span></div>
+        </div>
+        <div class="loc__grid">
+          <article class="loc-card">
+            <p class="loc-card__city">Seattle · WA</p>
+            <h3>Southcenter Mall</h3>
+            <div class="loc-card__row"><strong>Addr</strong><span>2800 Southcenter Blvd, Space #FC13<br>Seattle, WA 98188</span></div>
+            <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+14252440337">(425) 244-0337</a></span></div>
+            <div class="loc-card__row"><strong>Hours</strong><span>Sun–Thu 11am–7pm · Fri–Sat 10am–8pm</span></div>
+            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=2800+Southcenter+Blvd+Seattle+WA+98188">Get Directions →</a>
+          </article>
+          <article class="loc-card">
+            <p class="loc-card__city">Seattle · WA</p>
+            <h3>Westlake Center</h3>
+            <div class="loc-card__row"><strong>Addr</strong><span>400 Pine St, Space #3035<br>Seattle, WA 98101</span></div>
+            <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+12062584933">(206) 258-4933</a></span></div>
+            <div class="loc-card__row"><strong>Hours</strong><span>Mon–Sat 11am–6pm · Sun 12pm–6pm</span></div>
+            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=400+Pine+St+Seattle+WA+98101">Get Directions →</a>
+          </article>
+          <article class="loc-card">
+            <p class="loc-card__city">Lynnwood · WA</p>
+            <h3>Alderwood Mall</h3>
+            <div class="loc-card__row"><strong>Addr</strong><span>3000 184th St SW, Space #836<br>Lynnwood, WA 98037</span></div>
+            <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+14254754968">(425) 475-4968</a></span></div>
+            <div class="loc-card__row"><strong>Hours</strong><span>Mon–Sat 11am–8pm · Sun 11am–7pm</span></div>
+            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=3000+184th+St+SW+Lynnwood+WA+98037">Get Directions →</a>
+          </article>
+          <article class="loc-card">
+            <p class="loc-card__city">Seattle · WA</p>
+            <h3>U-District</h3>
+            <div class="loc-card__row"><strong>Addr</strong><span>4141 University Way NE, Suite #201<br>Seattle, WA 98105</span></div>
+            <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+12065472168">(206) 547-2168</a></span></div>
+            <div class="loc-card__row"><strong>Hours</strong><span>Mon–Fri &amp; Sun 11am–9pm</span></div>
+            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=4141+University+Way+NE+Seattle+WA+98105">Get Directions →</a>
+          </article>
+          <article class="loc-card">
+            <p class="loc-card__city">Shoreline · WA</p>
+            <h3>Aurora Village</h3>
+            <div class="loc-card__row"><strong>Addr</strong><span>1267 N 205th St<br>Shoreline, WA 98133</span></div>
+            <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+12066294005">(206) 629-4005</a></span></div>
+            <div class="loc-card__row"><strong>Hours</strong><span>Mon–Sat 10:30am–8:30pm · Sun 11am–8pm</span></div>
+            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=1267+N+205th+St+Shoreline+WA+98133">Get Directions →</a>
+          </article>
+        </div>
+      </div>
+
+      <div class="loc__state-row reveal" id="oregon">
+        <div class="loc__state-head">
+          <h3 class="loc__state-name"><em>Oregon</em></h3>
+          <div class="loc__state-meta"><strong>1 location · 1 soon</strong><span>Portland · Clackamas</span></div>
+        </div>
+        <div class="loc__grid">
+          <article class="loc-card">
+            <p class="loc-card__city">Portland · OR</p>
+            <h3>Washington Square</h3>
+            <div class="loc-card__row"><strong>Addr</strong><span>9585 SW Washington Square Rd, Space #FC08<br>Portland, OR 97233</span></div>
+            <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+19712971001">(971) 297-1001</a></span></div>
+            <div class="loc-card__row"><strong>Hours</strong><span>Mon–Sat 10am–9pm · Sun 11am–7pm</span></div>
+            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=9585+SW+Washington+Square+Rd+Portland+OR">Get Directions →</a>
+          </article>
+          <article class="loc-card loc-card--soon">
+            <p class="loc-card__city">Coming Soon</p>
+            <h3>Clackamas Town Center</h3>
+            <div class="loc-card__row"><strong>Where</strong><span>Clackamas, OR</span></div>
+            <p style="font-size:13.5px;color:var(--ink3);line-height:1.55;flex:1;margin-top:8px">Opening soon. Roll with us — get notified when we open.</p>
+            <a class="btn btn--outline btn--sm loc-card__btn" href="#">Notify Me →</a>
+          </article>
+        </div>
+      </div>
+
+      <div class="loc__state-row reveal" id="new-jersey">
+        <div class="loc__state-head">
+          <h3 class="loc__state-name"><em>New Jersey</em></h3>
+          <div class="loc__state-meta"><strong>2 locations</strong><span>Rockaway · Wayne</span></div>
+        </div>
+        <div class="loc__grid">
+          <article class="loc-card">
+            <p class="loc-card__city">Rockaway · NJ</p>
+            <h3>Rockaway Townsquare</h3>
+            <div class="loc-card__row"><strong>Addr</strong><span>301 Mt. Hope Ave, Suite 2110<br>Rockaway, NJ 07866</span></div>
+            <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+19733432100">(973) 343-2100</a></span></div>
+            <div class="loc-card__row"><strong>Hours</strong><span>Mon–Thu 10am–8pm · Fri–Sat 10am–9pm · Sun 12pm–6pm</span></div>
+            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=301+Mt+Hope+Ave+Rockaway+NJ+07866">Get Directions →</a>
+          </article>
+          <article class="loc-card">
+            <p class="loc-card__city">Wayne · NJ</p>
+            <h3>Willowbrook Mall</h3>
+            <div class="loc-card__row"><strong>Addr</strong><span>1400 Willowbrook Blvd, Suite 2110<br>Wayne, NJ 07470</span></div>
+            <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+18629468633">(862) 946-8633</a></span></div>
+            <div class="loc-card__row"><strong>Hours</strong><span>Mon–Thu 11am–8pm · Fri–Sat 11am–9pm · Sun 11am–7pm</span></div>
+            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=1400+Willowbrook+Blvd+Wayne+NJ+07470">Get Directions →</a>
+          </article>
+        </div>
+      </div>
+
+      <div class="loc__state-row reveal" id="california">
+        <div class="loc__state-head">
+          <h3 class="loc__state-name"><em>California</em></h3>
+          <div class="loc__state-meta"><strong>4 coming soon</strong><span>Rolling in 2026</span></div>
+        </div>
+        <div class="loc__soon-grid">
+          <div class="loc-soon">
+            <span class="loc-soon__tag">Coming Soon</span>
+            <strong>Westfield Topanga</strong>
+            <span>6600 Topanga Canyon Blvd · Canoga Park, CA</span>
+          </div>
+          <div class="loc-soon">
+            <span class="loc-soon__tag">Coming Soon</span>
+            <strong>Westfield Culver City</strong>
+            <span>6000 Sepulveda Blvd · Culver City, CA</span>
+          </div>
+          <div class="loc-soon">
+            <span class="loc-soon__tag">Coming Soon</span>
+            <strong>Westfield Valley Fair</strong>
+            <span>2855 Stevens Creek Blvd · Santa Clara, CA</span>
+          </div>
+          <div class="loc-soon">
+            <span class="loc-soon__tag">Coming Soon</span>
+            <strong>Westfield Galleria</strong>
+            <span>1151 Galleria Blvd · Roseville, CA</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-tag">
+        <a href="index.html" class="foot-tag__brand" aria-label="IJ Sushi Burrito home">
+          <img src="assets/logo.png" alt="" width="64" height="64">
+          <span>IJ <span class="s">Sushi</span> <span class="b">Burrito</span></span>
+        </a>
+        <p class="foot-tag__slogan">Roll your own <em>way.</em></p>
+        <div class="social" aria-label="Social media">
+          <a href="https://www.instagram.com/ij_sushiburrito/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1-.4-2.2-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.3 2.2-.4 1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 5.8.1 5 .3 4.2.6c-.8.3-1.5.7-2.1 1.4C1.4 2.6 1 3.3.7 4.2.4 5 .2 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.3 2.1.6 2.9.3.8.7 1.5 1.4 2.1.7.7 1.4 1.1 2.1 1.4.8.3 1.6.5 2.9.6 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c1.3-.1 2.1-.3 2.9-.6.8-.3 1.5-.7 2.1-1.4.7-.7 1.1-1.4 1.4-2.1.3-.8.5-1.6.6-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.3-2.1-.6-2.9-.3-.8-.7-1.5-1.4-2.1-.7-.7-1.4-1.1-2.1-1.4-.8-.3-1.6-.5-2.9-.6C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zm0 10.3a4.1 4.1 0 110-8.2 4.1 4.1 0 010 8.2zm7.9-10.5a1.4 1.4 0 11-2.9 0 1.4 1.4 0 012.9 0z"/></svg></a>
+          <a href="https://www.facebook.com/IJSushiBurritoHQ/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.6 9.9v-7H8v-2.9h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.5.7-1.5 1.5V12h2.6l-.4 2.9h-2.2v7A10 10 0 0022 12z"/></svg></a>
+          <a href="#" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.6 6.3a4.8 4.8 0 01-2.9-1 4.8 4.8 0 01-1.9-3.3h-3.3v13.4a2.9 2.9 0 11-2-2.8V9.2a6.2 6.2 0 102 12.3 6.2 6.2 0 006-6.2V9.1a8 8 0 004.6 1.5V7.3a4.8 4.8 0 01-2.5-1z"/></svg></a>
+          <a href="#" target="_blank" rel="noopener" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.3 8.4L23.3 22h-6.8l-5.3-7-6.1 7H2l7.8-9L1.7 2h7l4.8 6.4L18.9 2zm-1.2 18h1.7L7 3.9H5.1L17.7 20z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="menu.html">Menu</a></li>
+        <li><a href="menu.html#catering">Catering</a></li>
+            <li><a href="locations.html">Locations</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Order</h4>
+          <ul>
+            <li><a href="https://www.ubereats.com/store/ij-sushi-burrito/3pzm3OdZTrqogPzIFTW_Sg" target="_blank" rel="noopener">Uber Eats</a></li>
+            <li><a href="https://www.doordash.com/store/ij-sushi-burrito-seattle-876364/" target="_blank" rel="noopener">DoorDash</a></li>
+            <li><a href="https://www.seamless.com/food/ij_sushi_burrito/menu" target="_blank" rel="noopener">Seamless</a></li>
+            <li><a href="gift-cards.html">Gift Cards</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Franchise</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      
+      <div class="foot-meta">
+        © 2026 IJ Sushi Burrito · Roll Your Own Way
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<div class="mobile-bar">
+  <a href="locations.html" class="btn btn--outline btn--sm">Find Us</a>
+  <a href="menu.html" class="btn btn--brand btn--sm">Order Now →</a>
+</div>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: .1, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el => io.observe(el));
+
+const nav = document.getElementById('nav');
+const toTop = document.getElementById('toTop');
+const onScroll = () => {
+  nav.classList.toggle('scrolled', window.scrollY > 12);
+  toTop.classList.toggle('show', window.scrollY > 600);
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+const burger = document.querySelector('.burger');
+const drawer = document.getElementById('drawer');
+burger?.addEventListener('click', () => {
+  const open = drawer.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+  drawer.hidden = !open;
+});
+drawer?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  drawer.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+  drawer.hidden = true;
+}));
+
+toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// State filter active state
+const filterLinks = document.querySelectorAll('.locs-filter a');
+const stateRows = document.querySelectorAll('.loc__state-row');
+const setActiveState = () => {
+  const y = window.scrollY + 200;
+  let active = null;
+  for (const s of stateRows) if (s.offsetTop <= y) active = s.id;
+  filterLinks.forEach(a => {
+    const href = a.getAttribute('href');
+    a.classList.toggle('active', active && href === '#' + active);
+  });
+};
+filterLinks.forEach(a => a.addEventListener('click', e => {
+  e.preventDefault();
+  const id = a.getAttribute('href').substring(1);
+  if (id) {
+    const target = document.getElementById(id);
+    if (target) {
+      const top = target.getBoundingClientRect().top + window.scrollY - 140;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+}));
+window.addEventListener('scroll', setActiveState, { passive: true });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#7ABA19">
+<title>Gift Cards — IJ Sushi Burrito</title>
+<meta name="description" content="IJ Sushi Burrito gift cards. The perfect gift for sushi lovers — redeemable at any of our 13+ locations.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gift Cards — IJ Sushi Burrito">
+<meta property="og:description" content="The perfect gift for sushi lovers.">
+<meta property="og:image" content="assets/logo.png">
+
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css?v=3">
+
+<style>
+/* ════════════ GIFT CARDS PAGE ════════════ */
+
+/* Hero — matches locations/menu treatment */
+.gc-hero{
+  position:relative;background:var(--ink);color:#fff;
+  min-height:480px;display:flex;align-items:center;
+  overflow:hidden;padding:calc(var(--nav-h) + 80px) 0 80px;
+}
+.gc-hero__bg{
+  position:absolute;inset:0;z-index:0;overflow:hidden;
+  background:
+    radial-gradient(ellipse 60% 80% at 85% 50%,rgba(255,119,29,.28) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 70% at 10% 60%,rgba(122,186,25,.18) 0%,transparent 60%),
+    var(--ink);
+}
+.gc-hero__overlay{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,.2) 60%,rgba(0,0,0,.4) 100%);
+}
+/* Confetti dots scattered across hero */
+.gc-confetti{position:absolute;inset:0;z-index:0;pointer-events:none}
+.gc-confetti span{position:absolute;border-radius:2px}
+.gc-confetti span:nth-child(odd){animation:confFloat 6s ease-in-out infinite}
+.gc-confetti span:nth-child(even){animation:confFloat 7s ease-in-out infinite reverse}
+@keyframes confFloat{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-10px) rotate(calc(var(--r,0deg) + 12deg))}}
+.gc-confetti span:nth-child(1){top:18%;left:8%;width:14px;height:6px;background:var(--brand);--r:24deg;opacity:.7}
+.gc-confetti span:nth-child(2){top:30%;left:18%;width:8px;height:8px;background:var(--orange);border-radius:50%;--r:0deg;opacity:.65}
+.gc-confetti span:nth-child(3){top:60%;left:6%;width:18px;height:5px;background:#fff;--r:-30deg;opacity:.35}
+.gc-confetti span:nth-child(4){top:74%;left:24%;width:10px;height:10px;background:var(--brand);border-radius:50%;--r:0deg;opacity:.55}
+.gc-confetti span:nth-child(5){top:14%;right:18%;width:16px;height:6px;background:var(--orange);--r:-15deg;opacity:.7}
+.gc-confetti span:nth-child(6){top:38%;right:8%;width:9px;height:9px;background:#fff;border-radius:50%;opacity:.5}
+.gc-confetti span:nth-child(7){top:58%;right:22%;width:14px;height:6px;background:var(--brand);--r:40deg;opacity:.6}
+.gc-confetti span:nth-child(8){top:78%;right:14%;width:11px;height:11px;background:var(--orange);border-radius:50%;opacity:.6}
+.gc-confetti span:nth-child(9){top:48%;left:42%;width:6px;height:6px;background:#fff;border-radius:50%;opacity:.45}
+.gc-confetti span:nth-child(10){top:24%;left:58%;width:13px;height:5px;background:var(--brand);--r:60deg;opacity:.5}
+@media(max-width:900px){.gc-confetti span:nth-child(n+7){display:none}}
+/* Big tilted card silhouettes */
+.gc-card-bg{position:absolute;border-radius:18px;border:2px dashed rgba(255,255,255,.07);pointer-events:none;z-index:0}
+.gc-card-bg--1{width:340px;height:215px;top:18%;right:-60px;transform:rotate(-12deg)}
+.gc-card-bg--2{width:240px;height:152px;bottom:-40px;left:-40px;transform:rotate(8deg);border-color:rgba(255,119,29,.15)}
+@media(max-width:900px){.gc-card-bg{display:none}}
+.gc-hero__inner{
+  position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:0 48px;width:100%;
+}
+@media(max-width:900px){.gc-hero__inner{padding:0 28px}}
+.gc-hero__eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,119,29,.95);margin-bottom:24px;
+}
+.gc-hero__eyebrow::before{content:'';width:32px;height:1.5px;background:var(--orange)}
+.gc-hero h1{
+  color:#fff;font-family:var(--fm-display);
+  font-size:clamp(48px,7vw,120px);font-weight:900;
+  letter-spacing:-.045em;line-height:.92;margin:0;text-transform:uppercase;
+}
+.gc-hero h1 em{
+  font-style:italic;font-weight:900;color:var(--orange);
+  position:relative;display:inline-block;text-transform:uppercase;
+}
+.gc-hero h1 em::after{
+  content:'';position:absolute;left:-.04em;right:-.04em;bottom:.05em;
+  height:.16em;background:rgba(255,119,29,.28);z-index:-1;
+}
+.gc-hero__sub{font-size:17px;color:rgba(255,255,255,.78);line-height:1.65;font-weight:500;max-width:420px;margin:0 0 24px}
+.gc-hero__stats{display:flex;gap:36px;flex-wrap:wrap}
+.gc-hero__stat{border-left:1px solid rgba(255,255,255,.18);padding-left:18px}
+.gc-hero__stat strong{display:block;font-family:var(--fm-display);font-size:32px;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:4px}
+.gc-hero__stat strong em{color:var(--orange);font-style:normal}
+.gc-hero__stat span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+
+/* Promo — split layout with gift card visual */
+.gc-promo{background:var(--bg);padding:140px 0;position:relative;overflow:hidden}
+@media(max-width:700px){.gc-promo{padding:72px 0}}
+.gc-promo::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(122,186,25,.08),transparent 70%);pointer-events:none}
+.gc-promo::after{content:'';position:absolute;bottom:-200px;left:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,119,29,.08),transparent 70%);pointer-events:none}
+.gc-promo__inner{position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr 1.05fr;gap:96px;align-items:center}
+@media(max-width:980px){.gc-promo__inner{grid-template-columns:1fr;gap:72px;padding:0 28px}}
+
+/* Left column: gift card visual — looks like a real gift card */
+.gc-promo__visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:520px;padding:60px 30px}
+@media(max-width:700px){.gc-promo__visual{min-height:auto;padding:40px 20px}}
+.gc-card-wrap{position:relative;width:100%;max-width:460px}
+.gc-card{
+  position:relative;width:100%;aspect-ratio:1.58/1;
+  background:linear-gradient(140deg,#ff8a3d 0%,#ff771d 45%,#e85d0a 100%);
+  border-radius:22px;overflow:hidden;
+  padding:28px 32px;display:flex;flex-direction:column;justify-content:space-between;
+  color:#fff;
+  box-shadow:
+    0 50px 90px -24px rgba(255,119,29,.45),
+    0 30px 50px -20px rgba(0,0,0,.25),
+    0 0 0 1px rgba(255,255,255,.22) inset,
+    0 0 0 6px rgba(0,0,0,.04);
+  transform:rotate(-3deg);transition:transform .6s var(--e);
+}
+.gc-card-wrap:hover .gc-card{transform:rotate(-1deg) scale(1.02)}
+
+/* Subtle dot pattern texture */
+.gc-card::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle,rgba(255,255,255,.16) 1.5px,transparent 1.5px);
+  background-size:20px 20px;
+  opacity:.6;
+  mask-image:radial-gradient(ellipse at 80% 20%,#000 0%,transparent 70%);
+  -webkit-mask-image:radial-gradient(ellipse at 80% 20%,#000 0%,transparent 70%);
+}
+
+/* Glossy diagonal sheen */
+.gc-card::after{
+  content:'';position:absolute;top:-50%;left:-30%;width:55%;height:200%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent);
+  transform:rotate(22deg);pointer-events:none;
+}
+
+/* Diagonal "FOR YOU" ribbon banner */
+.gc-card__ribbon{
+  position:absolute;top:22px;left:-46px;z-index:3;
+  background:var(--ink);color:#fff;
+  padding:7px 58px;font-size:10px;font-weight:900;letter-spacing:.24em;text-transform:uppercase;
+  transform:rotate(-30deg);box-shadow:0 8px 18px rgba(0,0,0,.3);
+}
+
+/* Top row: bow icon + GIFT CARD label */
+.gc-card__top{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+.gc-card__bow{
+  flex-shrink:0;width:54px;height:54px;
+  display:flex;align-items:center;justify-content:center;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,.18));
+}
+.gc-card__bow svg{width:100%;height:100%}
+.gc-card__label-wrap{text-align:right}
+.gc-card__label{
+  display:inline-block;font-family:var(--fm-display);font-size:13px;font-weight:900;
+  letter-spacing:.32em;text-transform:uppercase;color:#fff;
+  background:rgba(0,0,0,.18);padding:7px 16px;border-radius:99px;
+  border:1px solid rgba(255,255,255,.28);margin:0 0 6px;
+}
+.gc-card__label-sub{display:block;font-size:9.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.78);margin:0}
+
+/* Center: amount */
+.gc-card__center{position:relative;z-index:1;text-align:left}
+.gc-card__amt{
+  font-family:var(--fm-display);font-size:clamp(56px,16vw,96px);font-weight:900;color:#fff;
+  letter-spacing:-.05em;line-height:.85;margin:0;
+  text-shadow:0 4px 0 rgba(0,0,0,.08);
+}
+.gc-card__amt em{font-style:normal;font-size:.45em;vertical-align:0.7em;margin-right:4px;font-weight:800;color:rgba(255,255,255,.9)}
+
+/* Bottom: "TO/FROM" lines on left + brand on right */
+.gc-card__bot{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-end;gap:18px}
+.gc-card__lines{display:flex;flex-direction:column;gap:8px;flex:1;max-width:55%}
+.gc-card__line{display:flex;align-items:flex-end;gap:8px}
+.gc-card__line-key{font-size:9.5px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);flex-shrink:0}
+.gc-card__line-rule{flex:1;height:1.5px;background:rgba(255,255,255,.5);border-radius:1px;margin-bottom:3px}
+.gc-card__brand{display:flex;align-items:center;gap:8px;font-family:var(--fm-display);font-size:14px;font-weight:900;letter-spacing:-.02em;color:#fff;text-align:right}
+.gc-card__brand img{width:32px;height:32px;background:#fff;border-radius:7px;padding:3px}
+.gc-card__brand .s{color:#fff}
+.gc-card__brand .b{color:#fff}
+
+/* Floating bonus badge — burst, sibling so it can overflow */
+.gc-card__bonus{
+  position:absolute;top:-30px;right:-30px;z-index:5;
+  width:118px;height:118px;
+  background:var(--brand);color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:var(--fm-display);
+  box-shadow:0 22px 46px -10px rgba(122,186,25,.6),0 0 0 6px rgba(255,255,255,.95);
+  transform:rotate(12deg);
+  clip-path:polygon(
+    50% 0%, 60% 12%, 73% 5%, 75% 20%, 90% 18%, 86% 32%, 100% 38%, 90% 50%,
+    100% 62%, 86% 68%, 90% 82%, 75% 80%, 73% 95%, 60% 88%, 50% 100%,
+    40% 88%, 27% 95%, 25% 80%, 10% 82%, 14% 68%, 0% 62%, 10% 50%,
+    0% 38%, 14% 32%, 10% 18%, 25% 20%, 27% 5%, 40% 12%
+  );
+  animation:bonusFloat 4s ease-in-out infinite;
+}
+@keyframes bonusFloat{0%,100%{transform:rotate(12deg) translateY(0)}50%{transform:rotate(8deg) translateY(-6px)}}
+.gc-card__bonus strong{font-size:28px;font-weight:900;letter-spacing:-.03em;line-height:1}
+.gc-card__bonus span{font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-top:3px}
+@media(max-width:520px){
+  .gc-card__bonus{width:84px;height:84px;top:-18px;right:-14px}
+  .gc-card__bonus strong{font-size:21px}
+  .gc-card__bonus span{font-size:8px}
+}
+
+/* Right column: copy */
+.gc-promo__copy .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--brand-d);margin-bottom:18px}
+.gc-promo__copy .eyebrow::before{content:'';width:32px;height:1.5px;background:var(--brand)}
+.gc-promo__copy h2{font-family:var(--fm-display);font-size:clamp(40px,5vw,72px);font-weight:900;letter-spacing:-.04em;line-height:.95;margin:0 0 28px;text-transform:uppercase;color:var(--ink)}
+.gc-promo__copy h2 em{font-style:italic;color:var(--brand)}
+.gc-promo__bonus-strip{
+  display:flex;align-items:center;gap:18px;
+  background:#fff;border:1px solid var(--ink7);border-left:4px solid var(--orange);
+  border-radius:var(--r);padding:22px 26px;margin:0 0 28px;
+}
+.gc-promo__bonus-strip-icon{flex-shrink:0;font-size:28px}
+.gc-promo__bonus-strip-txt{flex:1}
+.gc-promo__bonus-strip-txt strong{display:block;font-family:var(--fm-display);font-size:18px;font-weight:900;color:var(--ink);letter-spacing:-.02em;line-height:1.1;margin-bottom:2px}
+.gc-promo__bonus-strip-txt strong em{font-style:italic;color:var(--orange)}
+.gc-promo__bonus-strip-txt span{font-size:13px;color:var(--ink3);font-weight:600}
+.gc-promo__desc{font-size:17px;color:var(--ink3);line-height:1.7;margin:0 0 36px;font-weight:500;max-width:520px}
+.gc-promo__perks{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 40px}
+.gc-promo__perk{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 16px;background:var(--brand-t);color:var(--brand-d);
+  border-radius:99px;font-size:12.5px;font-weight:700;letter-spacing:.02em;
+}
+.gc-promo__perk svg{width:14px;height:14px;stroke:currentColor}
+</style>
+</head>
+
+<body>
+<a href="#main" class="skip">Skip to content</a>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="IJ Sushi Burrito home">
+      <img src="assets/logo.png" alt="" width="46" height="46">
+      <span>IJ <span class="s">Sushi</span> <span class="b">Burrito</span></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav__links">
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="locations.html">Locations</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gift-cards.html" aria-current="page">Gift Cards</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav__cta">
+      <a href="locations.html" class="btn btn--outline btn--sm">Find Us</a>
+      <a href="menu.html" class="btn btn--brand btn--sm">Order Now</a>
+      <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" hidden>
+  <ul>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="locations.html">Locations</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gift-cards.html">Gift Cards</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="menu.html" class="btn btn--brand btn--lg">Order Now →</a>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="gc-hero" aria-labelledby="gc-hero-title">
+  <div class="gc-hero__bg" aria-hidden="true">
+    <span class="gc-card-bg gc-card-bg--1"></span>
+    <span class="gc-card-bg gc-card-bg--2"></span>
+  </div>
+  <div class="gc-confetti" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="gc-hero__overlay"></div>
+  <div class="gc-hero__inner">
+    <div>
+      <p class="gc-hero__eyebrow">Gift Cards</p>
+      <h1 id="gc-hero-title">Give the <em>roll.</em></h1>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO -->
+<section class="gc-promo">
+  <div class="gc-promo__inner">
+
+    <!-- Visual: branded gift card with bow, TO/FROM lines, ribbon + bonus burst -->
+    <div class="gc-promo__visual" aria-hidden="true">
+      <div class="gc-card-wrap">
+        <div class="gc-card">
+          <span class="gc-card__ribbon">For You</span>
+          <div class="gc-card__top">
+            <div class="gc-card__bow">
+              <!-- Stylized bow SVG -->
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M32 32c-3-7-10-12-18-12-2.4 0-4 1.8-4 4 0 6 6 12 14 14-2 1-4 3-4 6 0 2 1.6 4 4 4 4 0 7-3 8-8z" fill="#fff" stroke="rgba(0,0,0,.18)" stroke-width="1.2" stroke-linejoin="round"/>
+                <path d="M32 32c3-7 10-12 18-12 2.4 0 4 1.8 4 4 0 6-6 12-14 14 2 1 4 3 4 6 0 2-1.6 4-4 4-4 0-7-3-8-8z" fill="#fff" stroke="rgba(0,0,0,.18)" stroke-width="1.2" stroke-linejoin="round"/>
+                <ellipse cx="32" cy="32" rx="6" ry="7" fill="#fff" stroke="rgba(0,0,0,.18)" stroke-width="1.2"/>
+                <path d="M30 30c1 1 3 1 4 0M30 34c1-1 3-1 4 0" stroke="rgba(0,0,0,.22)" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="gc-card__label-wrap">
+              <span class="gc-card__label">Gift Card</span>
+              <span class="gc-card__label-sub">Digital · Reloadable</span>
+            </div>
+          </div>
+          <div class="gc-card__center">
+            <p class="gc-card__amt"><em>$</em>100</p>
+          </div>
+          <div class="gc-card__bot">
+            <div class="gc-card__lines">
+              <div class="gc-card__line"><span class="gc-card__line-key">To</span><span class="gc-card__line-rule"></span></div>
+              <div class="gc-card__line"><span class="gc-card__line-key">From</span><span class="gc-card__line-rule"></span></div>
+            </div>
+            <div class="gc-card__brand">
+              <img src="assets/logo.png" alt="">
+              <span>IJ <span class="s">Sushi</span> <span class="b">Burrito</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="gc-card__bonus">
+          <strong>+$10</strong>
+          <span>Bonus</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copy -->
+    <div class="gc-promo__copy">
+      <p class="eyebrow">Now Available</p>
+      <h2>Digital gift cards, <em>delivered.</em></h2>
+      <div class="gc-promo__bonus-strip">
+        <div class="gc-promo__bonus-strip-icon">🎁</div>
+        <div class="gc-promo__bonus-strip-txt">
+          <strong>Buy $100, get a <em>$10 bonus.</em></strong>
+          <span>Limited-time offer</span>
+        </div>
+      </div>
+      <p class="gc-promo__desc">Use it for any purchase at IJ Sushi Burrito. A great gift for sushi lovers — and no tax will be applied at purchase.</p>
+      <div class="gc-promo__perks">
+        <span class="gc-promo__perk">⚡ Instant delivery</span>
+        <span class="gc-promo__perk">🧾 No tax</span>
+        <span class="gc-promo__perk">📍 Any location</span>
+      </div>
+      <a href="https://www.ijsushiburrito.com/" target="_blank" rel="noopener" class="btn btn--brand btn--xl">Buy Online <span class="arrow">→</span></a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-tag">
+        <a href="index.html" class="foot-tag__brand" aria-label="IJ Sushi Burrito home">
+          <img src="assets/logo.png" alt="" width="64" height="64">
+          <span>IJ <span class="s">Sushi</span> <span class="b">Burrito</span></span>
+        </a>
+        <p class="foot-tag__slogan">Roll your own <em>way.</em></p>
+        <div class="social" aria-label="Social media">
+          <a href="https://www.instagram.com/ij_sushiburrito/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1-.4-2.2-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.3 2.2-.4 1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 5.8.1 5 .3 4.2.6c-.8.3-1.5.7-2.1 1.4C1.4 2.6 1 3.3.7 4.2.4 5 .2 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.3 2.1.6 2.9.3.8.7 1.5 1.4 2.1.7.7 1.4 1.1 2.1 1.4.8.3 1.6.5 2.9.6 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c1.3-.1 2.1-.3 2.9-.6.8-.3 1.5-.7 2.1-1.4.7-.7 1.1-1.4 1.4-2.1.3-.8.5-1.6.6-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.3-2.1-.6-2.9-.3-.8-.7-1.5-1.4-2.1-.7-.7-1.4-1.1-2.1-1.4-.8-.3-1.6-.5-2.9-.6C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zm0 10.3a4.1 4.1 0 110-8.2 4.1 4.1 0 010 8.2zm7.9-10.5a1.4 1.4 0 11-2.9 0 1.4 1.4 0 012.9 0z"/></svg></a>
+          <a href="https://www.facebook.com/IJSushiBurritoHQ/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.6 9.9v-7H8v-2.9h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.5.7-1.5 1.5V12h2.6l-.4 2.9h-2.2v7A10 10 0 0022 12z"/></svg></a>
+          <a href="#" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.6 6.3a4.8 4.8 0 01-2.9-1 4.8 4.8 0 01-1.9-3.3h-3.3v13.4a2.9 2.9 0 11-2-2.8V9.2a6.2 6.2 0 102 12.3 6.2 6.2 0 006-6.2V9.1a8 8 0 004.6 1.5V7.3a4.8 4.8 0 01-2.5-1z"/></svg></a>
+          <a href="#" target="_blank" rel="noopener" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.3 8.4L23.3 22h-6.8l-5.3-7-6.1 7H2l7.8-9L1.7 2h7l4.8 6.4L18.9 2zm-1.2 18h1.7L7 3.9H5.1L17.7 20z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="menu.html#catering">Catering</a></li>
+            <li><a href="locations.html">Locations</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Order</h4>
+          <ul>
+            <li><a href="https://www.ubereats.com/store/ij-sushi-burrito/3pzm3OdZTrqogPzIFTW_Sg" target="_blank" rel="noopener">Uber Eats</a></li>
+            <li><a href="https://www.doordash.com/store/ij-sushi-burrito-seattle-876364/" target="_blank" rel="noopener">DoorDash</a></li>
+            <li><a href="https://www.seamless.com/food/ij_sushi_burrito/menu" target="_blank" rel="noopener">Seamless</a></li>
+            <li><a href="gift-cards.html">Gift Cards</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Franchise</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div class="foot-meta">© 2026 IJ Sushi Burrito · Roll Your Own Way</div>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<div class="mobile-bar">
+  <a href="locations.html" class="btn btn--outline btn--sm">Find Us</a>
+  <a href="menu.html" class="btn btn--brand btn--sm">Order Now →</a>
+</div>
+
+<script>
+const nav = document.getElementById('nav');
+const toTop = document.getElementById('toTop');
+const onScroll = () => {
+  nav.classList.toggle('scrolled', window.scrollY > 12);
+  toTop.classList.toggle('show', window.scrollY > 600);
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+const burger = document.querySelector('.burger');
+const drawer = document.getElementById('drawer');
+burger?.addEventListener('click', () => {
+  const open = drawer.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+  drawer.hidden = !open;
+});
+drawer?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  drawer.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+  drawer.hidden = true;
+}));
+
+toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+
+</body>
+</html>
