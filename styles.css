@@ -193,10 +193,10 @@ h3{font-size:24px;letter-spacing:-.02em;line-height:1.05;font-weight:700}
   .burger{display:flex}
   .nav__cta .btn--outline{display:none}
 }
-@media(max-width:600px){
+@media(max-width:700px){
   .nav__inner{gap:10px;padding:0 16px}
   .nav__cta{gap:6px}
-  .nav__cta .btn--brand{padding:10px 16px;font-size:12px;letter-spacing:.04em}
+  .nav__cta .btn--brand{display:none}
   .burger{width:40px;height:40px}
 }
 
