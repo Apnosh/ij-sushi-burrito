@@ -61,16 +61,16 @@
 .ab-hero__inner{
   position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:0 48px;width:100%;
 }
-@media(max-width:900px){.ab-hero__inner{padding:0 28px;text-align:center}.ab-hero__inner > div{display:flex;flex-direction:column;align-items:center}}
+@media(max-width:900px){.ab-hero{min-height:auto;padding:calc(var(--nav-h) + 60px) 0 60px}.ab-hero__inner{padding:0 28px;text-align:center}.ab-hero__inner > div{display:flex;flex-direction:column;align-items:center}}
 .ab-hero__eyebrow{
   display:inline-flex;align-items:center;gap:12px;
-  font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
   color:rgba(122,186,25,.95);margin-bottom:24px;
 }
 .ab-hero__eyebrow::before{content:'';width:32px;height:1.5px;background:var(--brand)}
 .ab-hero h1{
   color:#fff;font-family:var(--fm-display);
-  font-size:clamp(48px,7vw,120px);font-weight:900;
+  font-size:clamp(42px,6vw,72px);font-weight:900;
   letter-spacing:-.045em;line-height:.92;margin:0;text-transform:uppercase;
 }
 .ab-hero h1 em{
@@ -127,10 +127,10 @@
 .ab-story__pull p span{color:var(--orange)}
 
 /* Copy column */
-.ab-story__copy .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--brand-d);margin-bottom:18px}
+.ab-story__copy .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--brand-d);margin-bottom:18px}
 .ab-story__copy .eyebrow::before{content:'';width:32px;height:1.5px;background:var(--brand)}
 .ab-story__copy h2{
-  font-family:var(--fm-display);font-size:clamp(36px,5vw,64px);
+  font-family:var(--fm-display);font-size:clamp(28px,3.5vw,42px);
   font-weight:900;letter-spacing:-.04em;line-height:.95;margin:0 0 28px;text-transform:uppercase;color:var(--ink);
 }
 .ab-story__copy h2 em{font-style:italic;color:var(--orange);text-transform:uppercase}
@@ -144,9 +144,9 @@
 .ab-pillars__inner{max-width:1320px;margin:0 auto;padding:0 48px}
 @media(max-width:900px){.ab-pillars__inner{padding:0 28px}}
 .ab-pillars__head{text-align:center;max-width:880px;margin:0 auto 56px}
-.ab-pillars__head .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--orange-d);margin-bottom:18px}
+.ab-pillars__head .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--orange-d);margin-bottom:18px}
 .ab-pillars__head .eyebrow::before{content:'';width:32px;height:1.5px;background:var(--orange)}
-.ab-pillars__head h2{font-family:var(--fm-display);font-size:clamp(36px,5.5vw,72px);font-weight:900;letter-spacing:-.04em;line-height:.95;margin:0;text-transform:uppercase;color:var(--ink);white-space:nowrap;text-wrap:nowrap;text-align:center}
+.ab-pillars__head h2{font-family:var(--fm-display);font-size:clamp(28px,3.5vw,42px);font-weight:900;letter-spacing:-.04em;line-height:.95;margin:0;text-transform:uppercase;color:var(--ink);text-align:center}
 @media(max-width:640px){.ab-pillars__head h2{white-space:normal;text-wrap:balance}}
 .ab-pillars__head h2 em{font-style:italic;color:var(--orange)}
 .ab-pillars__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -178,9 +178,9 @@
 .ab-reach::before{content:'';position:absolute;top:-100px;right:-80px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(122,186,25,.18),transparent 70%);pointer-events:none}
 .ab-reach__inner{position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 @media(max-width:900px){.ab-reach__inner{grid-template-columns:1fr;gap:48px;padding:0 28px}}
-.ab-reach__copy .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(122,186,25,.95);margin-bottom:18px}
+.ab-reach__copy .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(122,186,25,.95);margin-bottom:18px}
 .ab-reach__copy .eyebrow::before{content:'';width:32px;height:1.5px;background:var(--brand)}
-.ab-reach__copy h2{color:#fff;font-family:var(--fm-display);font-size:clamp(40px,5.5vw,72px);font-weight:900;letter-spacing:-.04em;line-height:.95;margin:0 0 24px;text-transform:uppercase}
+.ab-reach__copy h2{color:#fff;font-family:var(--fm-display);font-size:clamp(28px,3.5vw,42px);font-weight:900;letter-spacing:-.04em;line-height:.95;margin:0 0 24px;text-transform:uppercase}
 .ab-reach__copy h2 em{font-style:italic;color:var(--brand)}
 .ab-reach__copy p{font-size:17px;color:rgba(255,255,255,.78);line-height:1.65;margin:0 0 32px;font-weight:500}
 .ab-reach__states{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
@@ -205,7 +205,7 @@
 @media(max-width:700px){.ab-cta__inner{padding:0 28px}}
 .ab-cta h2{
   color:#fff;font-family:var(--fm-display);
-  font-size:clamp(48px,7vw,104px);font-weight:900;letter-spacing:-.04em;line-height:.92;margin:0 0 24px;text-transform:uppercase;
+  font-size:clamp(28px,3.5vw,42px);font-weight:900;letter-spacing:-.04em;line-height:.92;margin:0 0 24px;text-transform:uppercase;
 }
 .ab-cta h2 em{color:var(--ink);font-style:normal;background:#fff;padding:0 .14em;border-radius:6px;display:inline-block;transform:rotate(-1.5deg)}
 .ab-cta p{font-size:18px;color:rgba(255,255,255,.95);line-height:1.6;margin:0 auto 32px;max-width:520px}
@@ -233,8 +233,7 @@
       </ul>
     </nav>
     <div class="nav__cta">
-      <a href="locations.html" class="btn btn--outline btn--sm">Find Us</a>
-      <a href="menu.html" class="btn btn--brand btn--sm">Order Now</a>
+      <a href="locations.html" class="btn btn--brand btn--sm">Order Now</a>
       <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
         <span></span><span></span><span></span>
       </button>
@@ -250,7 +249,7 @@
     <li><a href="gift-cards.html">Gift Cards</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="menu.html" class="btn btn--brand btn--lg">Order Now →</a>
+  <a href="locations.html" class="btn btn--brand btn--lg">Order Now →</a>
 </div>
 
 <main id="main">

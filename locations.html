@@ -67,7 +67,7 @@
 .locs-hero__inner{
   position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:0 48px;width:100%;
 }
-@media(max-width:900px){.locs-hero__inner{padding:0 28px;text-align:center}.locs-hero__inner > div{display:flex;flex-direction:column;align-items:center}}
+@media(max-width:900px){.locs-hero{min-height:auto;padding:calc(var(--nav-h) + 60px) 0 60px}.locs-hero__inner{padding:0 28px;text-align:center}.locs-hero__inner > div{display:flex;flex-direction:column;align-items:center}}
 .locs-hero__eyebrow{
   display:inline-flex;align-items:center;gap:12px;
   font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
@@ -76,7 +76,7 @@
 .locs-hero__eyebrow::before{content:'';width:32px;height:1.5px;background:var(--brand)}
 .locs-hero h1{
   color:#fff;font-family:var(--fm-display);
-  font-size:clamp(48px,7vw,120px);font-weight:900;
+  font-size:clamp(42px,6vw,72px);font-weight:900;
   letter-spacing:-.045em;line-height:.92;margin:0;text-transform:uppercase;
 }
 .locs-hero h1 em{
@@ -157,8 +157,7 @@
       </ul>
     </nav>
     <div class="nav__cta">
-      <a href="locations.html" class="btn btn--outline btn--sm">Find Us</a>
-      <a href="menu.html" class="btn btn--brand btn--sm">Order Now</a>
+      <a href="locations.html" class="btn btn--brand btn--sm">Order Now</a>
       <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
         <span></span><span></span><span></span>
       </button>
@@ -174,7 +173,7 @@
     <li><a href="gift-cards.html">Gift Cards</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="menu.html" class="btn btn--brand btn--lg">Order Now →</a>
+  <a href="locations.html" class="btn btn--brand btn--lg">Order Now →</a>
 </div>
 
 <main id="main">
@@ -229,7 +228,10 @@
             <div class="loc-card__row"><strong>Addr</strong><span>2800 Southcenter Blvd, Space #FC13<br>Seattle, WA 98188</span></div>
             <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+14252440337">(425) 244-0337</a></span></div>
             <div class="loc-card__row"><strong>Hours</strong><span>Sun–Thu 11am–7pm · Fri–Sat 10am–8pm</span></div>
-            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=2800+Southcenter+Blvd+Seattle+WA+98188">Get Directions →</a>
+            <div class="loc-card__btns">
+              <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=2800+Southcenter+Blvd+Seattle+WA+98188">Get Directions →</a>
+              <a class="btn btn--brand btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://direct.chownow.com/order/29154/locations/43144">Order Now →</a>
+            </div>
           </article>
           <article class="loc-card">
             <p class="loc-card__city">Seattle · WA</p>
@@ -237,7 +239,10 @@
             <div class="loc-card__row"><strong>Addr</strong><span>400 Pine St, Space #3035<br>Seattle, WA 98101</span></div>
             <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+12062584933">(206) 258-4933</a></span></div>
             <div class="loc-card__row"><strong>Hours</strong><span>Mon–Sat 11am–6pm · Sun 12pm–6pm</span></div>
-            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=400+Pine+St+Seattle+WA+98101">Get Directions →</a>
+            <div class="loc-card__btns">
+              <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=400+Pine+St+Seattle+WA+98101">Get Directions →</a>
+              <a class="btn btn--brand btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://direct.chownow.com/order/29154/locations/43150">Order Now →</a>
+            </div>
           </article>
           <article class="loc-card">
             <p class="loc-card__city">Lynnwood · WA</p>
@@ -245,7 +250,10 @@
             <div class="loc-card__row"><strong>Addr</strong><span>3000 184th St SW, Space #836<br>Lynnwood, WA 98037</span></div>
             <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+14254754968">(425) 475-4968</a></span></div>
             <div class="loc-card__row"><strong>Hours</strong><span>Mon–Sat 11am–8pm · Sun 11am–7pm</span></div>
-            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=3000+184th+St+SW+Lynnwood+WA+98037">Get Directions →</a>
+            <div class="loc-card__btns">
+              <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=3000+184th+St+SW+Lynnwood+WA+98037">Get Directions →</a>
+              <a class="btn btn--brand btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://direct.chownow.com/order/29154/locations/54557">Order Now →</a>
+            </div>
           </article>
           <article class="loc-card">
             <p class="loc-card__city">Seattle · WA</p>
@@ -253,7 +261,10 @@
             <div class="loc-card__row"><strong>Addr</strong><span>4141 University Way NE, Suite #201<br>Seattle, WA 98105</span></div>
             <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+12065472168">(206) 547-2168</a></span></div>
             <div class="loc-card__row"><strong>Hours</strong><span>Mon–Fri &amp; Sun 11am–9pm</span></div>
-            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=4141+University+Way+NE+Seattle+WA+98105">Get Directions →</a>
+            <div class="loc-card__btns">
+              <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=4141+University+Way+NE+Seattle+WA+98105">Get Directions →</a>
+              <a class="btn btn--brand btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://direct.chownow.com/order/29154/locations/47204">Order Now →</a>
+            </div>
           </article>
           <article class="loc-card">
             <p class="loc-card__city">Shoreline · WA</p>
@@ -261,7 +272,10 @@
             <div class="loc-card__row"><strong>Addr</strong><span>1267 N 205th St<br>Shoreline, WA 98133</span></div>
             <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+12066294005">(206) 629-4005</a></span></div>
             <div class="loc-card__row"><strong>Hours</strong><span>Mon–Sat 10:30am–8:30pm · Sun 11am–8pm</span></div>
-            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=1267+N+205th+St+Shoreline+WA+98133">Get Directions →</a>
+            <div class="loc-card__btns">
+              <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=1267+N+205th+St+Shoreline+WA+98133">Get Directions →</a>
+              <a class="btn btn--brand btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://direct.chownow.com/order/29154/locations/54559">Order Now →</a>
+            </div>
           </article>
         </div>
       </div>
@@ -278,7 +292,10 @@
             <div class="loc-card__row"><strong>Addr</strong><span>9585 SW Washington Square Rd, Space #FC08<br>Portland, OR 97233</span></div>
             <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+19712971001">(971) 297-1001</a></span></div>
             <div class="loc-card__row"><strong>Hours</strong><span>Mon–Sat 10am–9pm · Sun 11am–7pm</span></div>
-            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=9585+SW+Washington+Square+Rd+Portland+OR">Get Directions →</a>
+            <div class="loc-card__btns">
+              <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=9585+SW+Washington+Square+Rd+Portland+OR">Get Directions →</a>
+              <a class="btn btn--brand btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://direct.chownow.com/direct/29154/locations/43145">Order Now →</a>
+            </div>
           </article>
           <article class="loc-card loc-card--soon">
             <p class="loc-card__city">Coming Soon</p>
@@ -302,7 +319,10 @@
             <div class="loc-card__row"><strong>Addr</strong><span>301 Mt. Hope Ave, Suite 2110<br>Rockaway, NJ 07866</span></div>
             <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+19733432100">(973) 343-2100</a></span></div>
             <div class="loc-card__row"><strong>Hours</strong><span>Mon–Thu 10am–8pm · Fri–Sat 10am–9pm · Sun 12pm–6pm</span></div>
-            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=301+Mt+Hope+Ave+Rockaway+NJ+07866">Get Directions →</a>
+            <div class="loc-card__btns">
+              <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=301+Mt+Hope+Ave+Rockaway+NJ+07866">Get Directions →</a>
+              <a class="btn btn--brand btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://direct.chownow.com/direct/29154/locations/58631">Order Now →</a>
+            </div>
           </article>
           <article class="loc-card">
             <p class="loc-card__city">Wayne · NJ</p>
@@ -310,7 +330,10 @@
             <div class="loc-card__row"><strong>Addr</strong><span>1400 Willowbrook Blvd, Suite 2110<br>Wayne, NJ 07470</span></div>
             <div class="loc-card__row"><strong>Phone</strong><span><a href="tel:+18629468633">(862) 946-8633</a></span></div>
             <div class="loc-card__row"><strong>Hours</strong><span>Mon–Thu 11am–8pm · Fri–Sat 11am–9pm · Sun 11am–7pm</span></div>
-            <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=1400+Willowbrook+Blvd+Wayne+NJ+07470">Get Directions →</a>
+            <div class="loc-card__btns">
+              <a class="btn btn--ink btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=1400+Willowbrook+Blvd+Wayne+NJ+07470">Get Directions →</a>
+              <a class="btn btn--brand btn--sm loc-card__btn" target="_blank" rel="noopener" href="https://direct.chownow.com/order/29154/locations/64384">Order Now →</a>
+            </div>
           </article>
         </div>
       </div>

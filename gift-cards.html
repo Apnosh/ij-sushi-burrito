@@ -66,16 +66,16 @@
 .gc-hero__inner{
   position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:0 48px;width:100%;
 }
-@media(max-width:900px){.gc-hero__inner{padding:0 28px;text-align:center}.gc-hero__inner > div{display:flex;flex-direction:column;align-items:center}}
+@media(max-width:900px){.gc-hero{min-height:auto;padding:calc(var(--nav-h) + 60px) 0 60px}.gc-hero__inner{padding:0 28px;text-align:center}.gc-hero__inner > div{display:flex;flex-direction:column;align-items:center}}
 .gc-hero__eyebrow{
   display:inline-flex;align-items:center;gap:12px;
-  font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
   color:rgba(255,119,29,.95);margin-bottom:24px;
 }
 .gc-hero__eyebrow::before{content:'';width:32px;height:1.5px;background:var(--orange)}
 .gc-hero h1{
   color:#fff;font-family:var(--fm-display);
-  font-size:clamp(48px,7vw,120px);font-weight:900;
+  font-size:clamp(42px,6vw,72px);font-weight:900;
   letter-spacing:-.045em;line-height:.92;margin:0;text-transform:uppercase;
 }
 .gc-hero h1 em{
@@ -210,9 +210,9 @@
 }
 
 /* Right column: copy */
-.gc-promo__copy .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--brand-d);margin-bottom:18px}
+.gc-promo__copy .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--brand-d);margin-bottom:18px}
 .gc-promo__copy .eyebrow::before{content:'';width:32px;height:1.5px;background:var(--brand)}
-.gc-promo__copy h2{font-family:var(--fm-display);font-size:clamp(40px,5vw,72px);font-weight:900;letter-spacing:-.04em;line-height:.95;margin:0 0 28px;text-transform:uppercase;color:var(--ink)}
+.gc-promo__copy h2{font-family:var(--fm-display);font-size:clamp(28px,3.5vw,42px);font-weight:900;letter-spacing:-.04em;line-height:.95;margin:0 0 28px;text-transform:uppercase;color:var(--ink)}
 .gc-promo__copy h2 em{font-style:italic;color:var(--brand)}
 .gc-promo__bonus-strip{
   display:flex;align-items:center;gap:18px;
@@ -255,8 +255,7 @@
       </ul>
     </nav>
     <div class="nav__cta">
-      <a href="locations.html" class="btn btn--outline btn--sm">Find Us</a>
-      <a href="menu.html" class="btn btn--brand btn--sm">Order Now</a>
+      <a href="locations.html" class="btn btn--brand btn--sm">Order Now</a>
       <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
         <span></span><span></span><span></span>
       </button>
@@ -272,7 +271,7 @@
     <li><a href="gift-cards.html">Gift Cards</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="menu.html" class="btn btn--brand btn--lg">Order Now →</a>
+  <a href="locations.html" class="btn btn--brand btn--lg">Order Now →</a>
 </div>
 
 <main id="main">

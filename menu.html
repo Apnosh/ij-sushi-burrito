@@ -54,10 +54,10 @@
 .mhead__inner{
   position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:0 48px;width:100%;
 }
-@media(max-width:900px){.mhead__inner{padding:0 28px;text-align:center}.mhead__inner > div{display:flex;flex-direction:column;align-items:center}}
-.mhead__eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(122,186,25,.95);margin-bottom:24px}
+@media(max-width:900px){.mhead{min-height:auto;padding:calc(var(--nav-h) + 60px) 0 60px}.mhead__inner{padding:0 28px;text-align:center}.mhead__inner > div{display:flex;flex-direction:column;align-items:center}}
+.mhead__eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(122,186,25,.95);margin-bottom:24px}
 .mhead__eyebrow::before{content:'';width:32px;height:1.5px;background:var(--brand)}
-.mhead h1{color:#fff;font-family:var(--fm-display);font-size:clamp(48px,7vw,120px);font-weight:900;letter-spacing:-.045em;line-height:.92;margin:0;text-transform:uppercase}
+.mhead h1{color:#fff;font-family:var(--fm-display);font-size:clamp(42px,6vw,72px);font-weight:900;letter-spacing:-.045em;line-height:.92;margin:0;text-transform:uppercase}
 .mhead h1 em{font-style:italic;font-weight:900;color:var(--orange);position:relative;display:inline-block;text-transform:uppercase}
 .mhead h1 em::after{content:'';position:absolute;left:-.04em;right:-.04em;bottom:.05em;height:.16em;background:rgba(255,119,29,.28);z-index:-1}
 .mhead__sub p{font-size:17px;color:rgba(255,255,255,.78);line-height:1.65;font-weight:500;max-width:420px;margin:0 0 24px}
@@ -87,76 +87,88 @@
 .mcat{padding:96px 0 0;scroll-margin-top:calc(var(--nav-h) + 70px)}
 .mcat:first-of-type{padding-top:64px}
 .mcat__head{margin-bottom:40px}
-.mcat__num{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.mcat__num{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;display:flex;align-items:center;gap:12px}
 .mcat__num::before{content:'';width:32px;height:1.5px;background:var(--orange)}
-.mcat h2{font-size:clamp(40px,6vw,80px);margin-bottom:0;line-height:.92;font-family:var(--fm-display);font-weight:900;letter-spacing:-.04em;text-transform:uppercase}
+.mcat h2{font-size:clamp(28px,3.5vw,42px);margin-bottom:0;line-height:.95;font-family:var(--fm-display);font-weight:900;letter-spacing:-.04em;text-transform:uppercase}
 .mcat h2 em{font-style:italic;color:var(--brand);position:relative;display:inline-block}
 .mcat h2 em::after{content:'';position:absolute;left:-.04em;right:-.04em;bottom:.05em;height:.16em;background:rgba(122,186,25,.28);z-index:-1}
 .mcat__desc{font-size:15px;color:var(--ink3);line-height:1.65;max-width:380px;font-weight:500}
 .mcat__count{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);padding:8px 16px;background:transparent;border:1px solid var(--ink6);border-radius:99px;white-space:nowrap;align-self:flex-end}
 
-.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
 .mcard{background:#fff;border:1px solid var(--ink7);border-radius:var(--r-lg);overflow:hidden;transition:transform .35s var(--e),box-shadow .35s var(--e),border-color .35s;display:flex;flex-direction:column;position:relative}
 .mcard:hover{transform:translateY(-6px);box-shadow:var(--s3);border-color:var(--brand)}
-.mcard__media{aspect-ratio:1/1;background:linear-gradient(135deg,#fdfbf5 0%,#f0e8d6 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.mcard__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--e)}
+.mcard__media{aspect-ratio:4/3;background:#fff;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.mcard__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:transform .8s var(--e)}
 .mcard:hover .mcard__media img{transform:scale(1.07)}
 .mcard__tags{position:absolute;top:16px;right:16px;display:flex;gap:6px;z-index:2;flex-wrap:wrap;max-width:70%;justify-content:flex-end}
 .mcard__num{position:absolute;top:16px;left:16px;z-index:2;font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--ink3);background:#fff;padding:6px 12px;border-radius:99px;border:1px solid var(--ink7)}
-.mcard__body{padding:24px 26px 24px;display:flex;flex-direction:column;flex:1}
-.mcard__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
-.mcard h3{font-family:var(--fm-display);font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.05;flex:1}
-.mcard__price{font-family:var(--fm-display);font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-.01em;white-space:nowrap}
-.mcard__desc{font-size:13.5px;color:var(--ink3);line-height:1.6;margin-bottom:18px;flex:1}
+.mcard__body{padding:18px 20px 18px;display:flex;flex-direction:column;flex:1}
+.mcard__head{margin-bottom:10px;order:1}
+.mcard h3{font-family:var(--fm-display);font-size:18px;font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.mcard__price{font-family:var(--fm-display);font-size:17px;font-weight:800;color:var(--ink);letter-spacing:-.01em;white-space:nowrap;order:3;margin-top:auto;padding-top:14px;border-top:1px solid var(--ink7)}
+.mcard__desc{font-size:12.5px;color:var(--ink3);line-height:1.55;margin-bottom:0;flex:1;order:2}
 .mcard__foot{display:flex;gap:10px;align-items:center;margin-top:auto;padding-top:14px;border-top:1px solid var(--ink7)}
 .mcard__foot .btn{flex:1}
-.mcard__info{width:40px;height:40px;border-radius:50%;background:var(--bg2);color:var(--ink3);display:flex;align-items:center;justify-content:center;transition:all .2s var(--e);flex-shrink:0}
-.mcard__info:hover{background:var(--ink);color:#fff}
-.mcard__info svg{width:16px;height:16px}
+.mcard__info{display:none}
 
 /* ════════════ BYO — full 4-step build flow (matches home page) ════════════ */
-.byo{background:var(--orange);color:#fff;position:relative;overflow:hidden;padding:120px 0;scroll-margin-top:calc(var(--nav-h) + 70px);margin-top:96px}
-.byo::before{content:'';position:absolute;top:-60px;right:-80px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.18),transparent 70%);pointer-events:none}
-.byo::after{content:'';position:absolute;bottom:-100px;left:-80px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(0,0,0,.1),transparent 70%);pointer-events:none}
+.byo{background:var(--bg2);color:var(--ink);position:relative;overflow:hidden;padding:120px 0;scroll-margin-top:calc(var(--nav-h) + 70px);margin-top:96px}
+@media(max-width:700px){.byo{padding:60px 0;margin-top:48px}}
+.byo::before,.byo::after{display:none}
 .byo__head{position:relative;z-index:1;max-width:1320px;margin:0 auto 64px;padding:0 48px;display:grid;grid-template-columns:1.4fr auto;gap:40px;align-items:end}
 @media(max-width:900px){.byo__head{grid-template-columns:1fr;gap:24px;padding:0 28px;margin-bottom:48px}}
-.byo__eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:20px}
-.byo__eyebrow::before{content:'';width:32px;height:1.5px;background:#fff}
-.byo h2{color:#fff;font-family:var(--fm-display);font-size:clamp(48px,7vw,108px);font-weight:900;letter-spacing:-.04em;line-height:.92;margin:0;text-transform:uppercase}
-.byo h2 em{font-style:normal;color:var(--ink);background:#fff;padding:0 .14em;border-radius:6px;display:inline-block;transform:rotate(-1.5deg)}
+.byo__eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--brand-d);margin-bottom:20px}
+.byo__eyebrow::before{content:'';width:32px;height:1.5px;background:var(--brand)}
+.byo h2{color:var(--ink);font-family:var(--fm-display);font-size:clamp(28px,3.5vw,42px);font-weight:900;letter-spacing:-.04em;line-height:.95;margin:0;text-transform:uppercase}
+.byo h2 em{color:var(--brand);font-style:italic;position:relative;display:inline-block}
+.byo h2 em::after{content:'';position:absolute;left:-.04em;right:-.04em;bottom:.05em;height:.16em;background:rgba(122,186,25,.28);z-index:-1}
 .byo__inner{position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:0 48px;display:flex;flex-direction:column;gap:32px}
 @media(max-width:900px){.byo__inner{padding:0 28px;gap:24px}}
-.byo-step{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-lg);backdrop-filter:blur(12px);padding:36px 36px;position:relative;overflow:hidden}
-@media(max-width:700px){.byo-step{padding:28px 24px}}
-.byo-step__head{display:flex;align-items:center;gap:20px;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.18)}
-.byo-step__num{width:48px;height:48px;border-radius:14px;background:#fff;color:var(--orange);font-family:var(--fm-display);font-size:24px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:-.03em;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+@media(max-width:700px){.byo__inner{padding:0 20px;gap:16px}}
+.byo-step{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:var(--r-lg);padding:36px 36px;position:relative;overflow:hidden}
+@media(max-width:700px){.byo-step{padding:20px 18px}}
+.byo-step__head{display:flex;align-items:center;gap:20px;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid rgba(0,0,0,.08)}
+@media(max-width:700px){.byo-step__head{gap:14px;margin-bottom:16px;padding-bottom:14px}}
+.byo-step__num{width:48px;height:48px;border-radius:14px;background:var(--brand);color:#fff;font-family:var(--fm-display);font-size:24px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:-.03em;box-shadow:0 4px 12px rgba(122,186,25,.3)}
+@media(max-width:700px){.byo-step__num{width:36px;height:36px;border-radius:10px;font-size:18px}}
 .byo-step__title{flex:1}
-.byo-step__title small{display:block;font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:4px}
-.byo-step__title h3{color:#fff;font-family:var(--fm-display);font-size:clamp(28px,3.4vw,42px);font-weight:900;letter-spacing:-.025em;line-height:1;margin:0;text-transform:none}
-.byo-step__hint{font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.byo-step__title small{display:block;font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
+@media(max-width:700px){.byo-step__title small{font-size:10px;margin-bottom:2px}}
+.byo-step__title h3{color:var(--ink);font-family:var(--fm-display);font-size:clamp(28px,3.4vw,42px);font-weight:900;letter-spacing:-.025em;line-height:1;margin:0;text-transform:none}
+@media(max-width:700px){.byo-step__title h3{font-size:20px}}
+.byo-step__hint{font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+@media(max-width:700px){.byo-step__hint{font-size:11px}}
 .byo-styles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:760px){.byo-styles{grid-template-columns:1fr}}
-.byo-style{position:relative;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px;transition:transform .25s var(--e),border-color .25s,background .25s;cursor:pointer;text-decoration:none;color:#fff}
-.byo-style:hover{transform:translateY(-4px);background:rgba(255,255,255,.14);border-color:#fff}
-.byo-style__photo{aspect-ratio:1;border-radius:var(--r-sm);overflow:hidden;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;position:relative}
-.byo-style__photo img{width:90%;height:90%;object-fit:contain;filter:drop-shadow(0 12px 16px rgba(0,0,0,.25))}
-.byo-style__num{position:absolute;top:12px;left:12px;width:28px;height:28px;border-radius:50%;background:#fff;color:var(--orange);font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center}
-.byo-style__name{font-family:var(--fm-display);font-size:23px;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1}
-.byo-style__sub{font-size:13px;color:rgba(255,255,255,.7);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+.byo-style{position:relative;background:rgba(122,186,25,.06);border:1px solid rgba(122,186,25,.18);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px;transition:transform .25s var(--e),border-color .25s,background .25s;cursor:pointer;text-decoration:none;color:var(--ink)}
+@media(max-width:760px){.byo-style{flex-direction:row;align-items:center;padding:14px 16px;gap:14px}}
+.byo-style:hover{transform:translateY(-4px);background:rgba(122,186,25,.12);border-color:var(--brand)}
+.byo-style__photo{aspect-ratio:1;border-radius:var(--r-sm);overflow:hidden;background:rgba(122,186,25,.06);display:flex;align-items:center;justify-content:center;position:relative}
+@media(max-width:760px){.byo-style__photo{width:80px;min-width:80px;aspect-ratio:1}}
+.byo-style__photo img{width:90%;height:90%;object-fit:contain;filter:drop-shadow(0 12px 16px rgba(0,0,0,.12))}
+.byo-style__num{position:absolute;top:12px;left:12px;width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center}
+@media(max-width:760px){.byo-style__num{top:6px;left:6px;width:22px;height:22px;font-size:11px}}
+.byo-style__name{font-family:var(--fm-display);font-size:23px;font-weight:900;color:var(--ink);letter-spacing:-.02em;line-height:1}
+@media(max-width:760px){.byo-style__name{font-size:16px}}
+.byo-style__sub{font-size:13px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+@media(max-width:760px){.byo-style__sub{font-size:11px;margin-top:2px}}
 .byo-proteins{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 @media(max-width:880px){.byo-proteins{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.byo-proteins{grid-template-columns:1fr}}
-.byo-protein{display:flex;align-items:center;gap:10px;padding:16px 20px;border-radius:var(--r);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);transition:background .2s,border-color .2s,transform .2s}
-.byo-protein:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
+@media(max-width:520px){.byo-proteins{grid-template-columns:repeat(2,1fr);gap:8px}}
+.byo-protein{display:flex;align-items:center;gap:10px;padding:16px 20px;border-radius:var(--r);background:#fff;border:1px solid rgba(0,0,0,.08);transition:background .2s,border-color .2s,transform .2s}
+@media(max-width:700px){.byo-protein{padding:12px 14px;gap:8px}}
+.byo-protein:hover{background:rgba(122,186,25,.06);border-color:var(--brand);transform:translateY(-2px)}
 .byo-protein__l{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
-.byo-protein__name{display:flex;align-items:center;gap:8px;font-size:15.5px;font-weight:800;color:#fff;letter-spacing:-.01em}
+.byo-protein__name{display:flex;align-items:center;gap:8px;font-size:15.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+@media(max-width:700px){.byo-protein__name{font-size:13.5px}}
 .byo-protein__icons{display:inline-flex;gap:3px}
 .byo-protein__icons span{width:14px;height:14px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:8px;font-weight:900;color:#fff;flex-shrink:0}
 .byo-protein__icons .veg{background:#3d6b0f}
 .byo-protein__icons .raw{background:var(--red)}
 .byo-protein__icons .gf{background:var(--orange-d)}
-.byo-protein__cal{font-size:12.5px;color:rgba(255,255,255,.55);font-weight:600;font-style:italic}
-.byo-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:18px;font-size:12.5px;font-weight:700;color:rgba(255,255,255,.75);letter-spacing:.06em;text-transform:uppercase}
+.byo-protein__cal{font-size:12.5px;color:var(--ink4);font-weight:600;font-style:italic}
+.byo-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:18px;font-size:12.5px;font-weight:700;color:var(--ink3);letter-spacing:.06em;text-transform:uppercase}
 .byo-legend span{display:inline-flex;align-items:center;gap:6px}
 .byo-legend i{width:12px;height:12px;border-radius:50%;display:inline-block}
 .byo-legend .veg{background:#3d6b0f}
@@ -165,20 +177,23 @@
 .byo-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 @media(max-width:760px){.byo-row{grid-template-columns:1fr}}
 .byo-toppings{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.byo-topping{display:inline-flex;align-items:center;font-size:13.5px;font-weight:700;color:#fff;background:rgba(255,255,255,.12);padding:8px 16px;border-radius:99px;border:1px solid rgba(255,255,255,.16);letter-spacing:.02em}
-.byo-extra{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);padding:9px 16px;border-radius:99px;font-size:13.5px;font-weight:800;letter-spacing:.04em}
+.byo-topping{display:inline-flex;align-items:center;font-size:13.5px;font-weight:700;color:var(--ink);background:rgba(0,0,0,.04);padding:8px 16px;border-radius:99px;border:1px solid rgba(0,0,0,.08);letter-spacing:.02em}
+@media(max-width:700px){.byo-topping{font-size:11.5px;padding:6px 12px}}
+.byo-extra{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;padding:9px 16px;border-radius:99px;font-size:13.5px;font-weight:800;letter-spacing:.04em}
+@media(max-width:700px){.byo-extra{font-size:11.5px;padding:7px 12px}}
 .byo-sauces{display:flex;gap:12px;flex-wrap:wrap}
-.byo-sauce{flex:1 1 100%;min-width:0;display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:var(--r);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+.byo-sauce{flex:1 1 100%;min-width:0;display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:var(--r);background:#fff;border:1px solid rgba(0,0,0,.08)}
+@media(max-width:700px){.byo-sauce{padding:10px 14px;gap:10px}}
 @media(min-width:600px){.byo-sauce{flex:1 1 140px}}
-.byo-sauce__dot{width:36px;height:36px;border-radius:50%;flex-shrink:0;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35),0 4px 10px rgba(0,0,0,.18);background-clip:padding-box;overflow:hidden;position:relative}
+.byo-sauce__dot{width:36px;height:36px;border-radius:50%;flex-shrink:0;box-shadow:inset 0 0 0 1.5px rgba(0,0,0,.1),0 4px 10px rgba(0,0,0,.1);background-clip:padding-box;overflow:hidden;position:relative}
 .byo-sauce__dot--mayo{background:radial-gradient(circle at 30% 30%,#ffe8c4,#ffb869)}
 .byo-sauce__dot--eel{background:radial-gradient(circle at 30% 30%,#5a3a1a,#1a0c00)}
 .byo-sauce__dot--both{background:linear-gradient(90deg,#ffb869 0%,#ffb869 50%,#1a0c00 50%,#1a0c00 100%)}
-.byo-sauce__txt strong{display:block;font-size:14.5px;font-weight:800;color:#fff;letter-spacing:-.01em}
-.byo-sauce__txt span{font-size:12px;color:rgba(255,255,255,.6);font-weight:700;text-transform:uppercase;letter-spacing:.06em;display:block;margin-top:2px}
+.byo-sauce__txt strong{display:block;font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.byo-sauce__txt span{font-size:12px;color:var(--ink4);font-weight:700;text-transform:uppercase;letter-spacing:.06em;display:block;margin-top:2px}
 .byo__foot{position:relative;z-index:1;max-width:1320px;margin:48px auto 0;padding:0 48px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
 @media(max-width:760px){.byo__foot{grid-template-columns:1fr;padding:0 28px;text-align:center}}
-.byo__note{font-size:12.5px;color:rgba(255,255,255,.7);line-height:1.6;font-weight:500;max-width:560px}
+.byo__note{font-size:12.5px;color:var(--ink3);line-height:1.6;font-weight:500;max-width:560px}
 .byo__note strong{display:block;font-weight:800;color:#fff;margin-bottom:4px;letter-spacing:.04em;text-transform:uppercase;font-size:11.5px}
 
 /* FEATURED SIDE/DRINK CARD */
@@ -189,18 +204,18 @@
 .featured-side--right .featured-side__photo{order:2}
 .featured-side--right .featured-side__body{order:1}
 @media(max-width:700px){.featured-side--right{grid-template-columns:1fr}.featured-side--right .featured-side__photo{order:1}.featured-side--right .featured-side__body{order:2}}
-.featured-side__photo{position:relative;overflow:hidden;min-height:320px;background:linear-gradient(135deg,#fdfbf5 0%,#f0e8d6 100%)}
+.featured-side__photo{position:relative;overflow:hidden;min-height:240px;background:#fff}
 .featured-side__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--e)}
 .featured-side:hover .featured-side__photo img{transform:scale(1.05)}
-.featured-side__tag{position:absolute;top:20px;left:20px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:99px;background:var(--ink);color:#fff;z-index:2}
-.featured-side__body{padding:48px 44px;display:flex;flex-direction:column;justify-content:center}
-@media(max-width:700px){.featured-side__body{padding:32px}}
-.featured-side__label{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
-.featured-side__label::before{content:'';width:24px;height:1.5px;background:var(--orange)}
-.featured-side h3{font-family:var(--fm-display);font-size:clamp(28px,3vw,40px);margin-bottom:14px;letter-spacing:-.025em;line-height:1.05}
-.featured-side__body p{font-size:15px;color:var(--ink3);line-height:1.65;margin-bottom:28px}
+.featured-side__tag{position:absolute;top:16px;left:16px;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:99px;background:var(--ink);color:#fff;z-index:2}
+.featured-side__body{padding:32px 28px;display:flex;flex-direction:column;justify-content:center}
+@media(max-width:700px){.featured-side__body{padding:24px}}
+.featured-side__label{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.featured-side__label::before{content:'';width:20px;height:1.5px;background:var(--orange)}
+.featured-side h3{font-family:var(--fm-display);font-size:clamp(22px,2.5vw,32px);margin-bottom:10px;letter-spacing:-.025em;line-height:1.05}
+.featured-side__body p{font-size:13px;color:var(--ink3);line-height:1.55;margin-bottom:18px}
 .featured-side__foot{display:flex;justify-content:space-between;align-items:center;gap:14px}
-.featured-side__price{font-family:var(--fm-display);font-size:28px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.featured-side__price{font-family:var(--fm-display);font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
 
 /* SIMPLE LIST (sides/drinks) */
 .mlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
@@ -208,7 +223,9 @@
 .mitem:hover{border-color:var(--ink);box-shadow:var(--s2);transform:translateX(4px)}
 .mitem__l h4{font-family:var(--fm-display);font-size:17px;font-weight:800;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
 .mitem__l span{font-size:12px;color:var(--ink4);font-weight:500}
-.mitem__r{font-family:var(--fm-display);font-size:20px;font-weight:800;color:var(--ink);white-space:nowrap;letter-spacing:-.01em}
+.mitem__r{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.mitem__price{font-family:var(--fm-display);font-size:20px;font-weight:800;color:var(--ink);white-space:nowrap;letter-spacing:-.01em}
+.mitem{flex-wrap:nowrap}
 
 /* CATERING preview card — links to catering.html */
 .menu-cater-card{
@@ -227,13 +244,13 @@
 @media(max-width:700px){.menu-cater-card__body{padding:36px 28px}}
 .menu-cater-card__eyebrow{
   position:relative;display:inline-flex;align-items:center;gap:12px;
-  font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
   color:rgba(255,119,29,.95);
 }
 .menu-cater-card__eyebrow::before{content:'';width:32px;height:1.5px;background:var(--orange)}
 .menu-cater-card h3{
   position:relative;font-family:var(--fm-display);
-  font-size:clamp(36px,4.5vw,64px);font-weight:900;
+  font-size:clamp(28px,3.5vw,42px);font-weight:900;
   letter-spacing:-.04em;line-height:.95;color:#fff;margin:0;text-transform:uppercase;
 }
 .menu-cater-card h3 em{font-style:italic;color:var(--orange);position:relative;display:inline-block}
@@ -250,9 +267,9 @@
 .cat-pkg__inner{position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:0 48px}
 @media(max-width:900px){.cat-pkg__inner{padding:0 28px}}
 .cat-pkg__head{text-align:center;max-width:680px;margin:0 auto 64px}
-.cat-pkg__head .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,119,29,.95);margin-bottom:18px}
+.cat-pkg__head .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,119,29,.95);margin-bottom:18px}
 .cat-pkg__head .eyebrow::before{content:'';width:32px;height:1.5px;background:var(--orange)}
-.cat-pkg__head h2{color:#fff;font-family:var(--fm-display);font-size:clamp(40px,5.5vw,72px);font-weight:900;letter-spacing:-.04em;line-height:.95;margin:0 0 20px;text-transform:uppercase}
+.cat-pkg__head h2{color:#fff;font-family:var(--fm-display);font-size:clamp(28px,3.5vw,42px);font-weight:900;letter-spacing:-.04em;line-height:.95;margin:0 0 20px;text-transform:uppercase}
 .cat-pkg__head h2 em{font-style:italic;color:var(--orange)}
 .cat-pkg__head p{font-size:17px;color:rgba(255,255,255,.7);line-height:1.6}
 .cat-pkg__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
@@ -277,13 +294,77 @@
 .mbottom{padding:140px 0;text-align:center;background:var(--ink);color:#fff;position:relative;overflow:hidden}
 .mbottom::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(122,186,25,.14) 0%,transparent 65%)}
 .mbottom > *{position:relative;z-index:1}
-.mbottom .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(122,186,25,.95);margin-bottom:20px}
+.mbottom .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(122,186,25,.95);margin-bottom:20px}
 .mbottom .eyebrow::before{content:'';width:32px;height:1.5px;background:var(--brand)}
-.mbottom h2{margin-bottom:20px;font-size:clamp(48px,7vw,108px);color:#fff;text-transform:uppercase;font-family:var(--fm-display);font-weight:900;letter-spacing:-.04em;line-height:.95}
+.mbottom h2{margin-bottom:20px;font-size:clamp(28px,3.5vw,42px);color:#fff;text-transform:uppercase;font-family:var(--fm-display);font-weight:900;letter-spacing:-.04em;line-height:.95}
 .mbottom h2 em{font-style:italic;color:var(--brand);position:relative;display:inline-block}
 .mbottom h2 em::after{content:'';position:absolute;left:-.04em;right:-.04em;bottom:.05em;height:.16em;background:rgba(122,186,25,.28);z-index:-1}
 .mbottom p{color:rgba(255,255,255,.7);font-size:18px;margin-bottom:36px;max-width:520px;margin-inline:auto;line-height:1.55;font-weight:500}
 .mbottom__btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ── Mobile menu optimization ── */
+@media(max-width:768px){
+  .mcat{padding:56px 0 0}
+  .mcat:first-of-type{padding-top:40px}
+  .mcat__head{margin-bottom:24px}
+  .mgrid{grid-template-columns:1fr;gap:12px}
+  .mcard{
+    flex-direction:row;
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .mcard__media{
+    width:140px;min-width:140px;max-height:140px;
+    aspect-ratio:1;
+    flex-shrink:0;align-self:center;
+  }
+  .mcard__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .mcard__tags{display:none}
+  .mcard__tags--mobile{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+  .mcard__tags--mobile .tag{font-size:9px;padding:3px 8px;box-shadow:none;border:1px solid var(--ink7);background:var(--bg2)}
+  .mcard__num{display:none}
+  .mcard__body{padding:16px 20px;justify-content:center}
+  .mcard__head{margin-bottom:4px;order:unset}
+  .mcard h3{font-size:16px}
+  .mcard__price{font-size:16px;margin-top:0;padding-top:0;border-top:none;order:unset}
+  .mcard__desc{order:unset}
+  .mcard__desc{
+    font-size:12px;line-height:1.45;margin-bottom:8px;
+  }
+  .mcard__foot{padding-top:8px;border-top:none}
+  .mcard__foot .btn{padding:8px 14px;font-size:11px;min-height:32px}
+  .mcard__info{display:none}
+  .mcard:hover{transform:none}
+  .featured-side{grid-template-columns:140px 1fr}
+  .featured-side--right{grid-template-columns:140px 1fr}
+  .featured-side--right .featured-side__photo{order:0}
+  .featured-side--right .featured-side__body{order:0}
+  .featured-side__photo{min-height:140px;max-height:140px;align-self:center}
+  .featured-side__tag{display:none}
+  .featured-side__body{padding:16px 20px}
+  .featured-side__label{margin-bottom:8px;font-size:9px}
+  .featured-side__label::before{width:16px}
+  .featured-side h3{font-size:16px;font-family:var(--fm-display);margin-bottom:6px}
+  .featured-side__body p{font-size:12px;line-height:1.45;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .featured-side__foot{gap:10px}
+  .featured-side__price{font-size:16px}
+  .featured-side__foot .btn{padding:8px 14px;font-size:11px;min-height:32px}
+  .featured-side:hover{transform:none}
+  .mlist{grid-template-columns:1fr;gap:10px}
+  .mitem{padding:14px 16px;flex-wrap:nowrap}
+  .mitem__l h4{font-size:14px;font-family:var(--fm-display)}
+  .mitem__l span{font-size:11px}
+  .mitem__price{font-size:15px}
+  .byo{margin-top:56px;padding:72px 0}
+  .byo-step{padding:20px 18px}
+  .byo-step__head{gap:12px;margin-bottom:18px;padding-bottom:14px}
+  .byo-step__num{width:36px;height:36px;font-size:18px;border-radius:10px}
+  .byo-step__title h3{font-size:20px}
+  .cat-pkg{padding:72px 0}
+  .cat-pkg__head{margin-bottom:40px}
+  .mbottom{padding:80px 0}
+  .filters{padding:32px 0 0}
+}
 </style>
 
 <script type="application/ld+json">
@@ -323,8 +404,7 @@
       </ul>
     </nav>
     <div class="nav__cta">
-      <a href="locations.html" class="btn btn--outline btn--sm">Find Us</a>
-      <a href="#signature" class="btn btn--brand btn--sm">Order Now</a>
+      <a href="locations.html" class="btn btn--brand btn--sm">Order Now</a>
       <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
         <span></span><span></span><span></span>
       </button>
@@ -340,7 +420,7 @@
     <li><a href="gift-cards.html">Gift Cards</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="#signature" class="btn btn--brand btn--lg">Order Now →</a>
+  <a href="locations.html" class="btn btn--brand btn--lg">Order Now →</a>
 </div>
 
 <main id="main">
@@ -398,92 +478,65 @@
 
       <article class="mcard" data-tags="popular cooked">
         <div class="mcard__media"><span class="mcard__num">No. 01</span><div class="mcard__tags"><span class="tag tag--o">Popular</span></div><img src="assets/menu/sumo-crunch.jpg" alt="Sumo Crunch sushi burrito with shrimp tempura, surimi crab, avocado" loading="lazy"></div><div class="mcard__body">
-        <div class="mcard__head"><h3>Sumo Crunch</h3><span class="mcard__price">$16.95</span></div>
+        <div class="mcard__head"><h3>Sumo Crunch</h3></div><span class="mcard__price">$16.95</span>
         <p class="mcard__desc">Shrimp tempura, surimi crab, avocado, cucumber, onion chip, tempura flakes with eel sauce.</p>
-        <div class="mcard__foot">
-          <button class="btn btn--brand btn--sm">Add to Order</button>
-          <button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
-        </div></div>
+        </div>
       </article>
 
       <article class="mcard" data-tags="spicy raw">
         <div class="mcard__media"><span class="mcard__num">No. 02</span><div class="mcard__tags"><span class="tag tag--r">Spicy</span><span class="tag">Raw</span></div><img src="assets/menu/evergreen.jpg" alt="Evergreen sushi burrito with spicy ahi tuna, edamame and lettuce" loading="lazy"></div><div class="mcard__body">
-        <div class="mcard__head"><h3>Evergreen</h3><span class="mcard__price">$17.95</span></div>
+        <div class="mcard__head"><h3>Evergreen</h3></div><span class="mcard__price">$17.95</span>
         <p class="mcard__desc">Spicy ahi tuna, lettuce, cucumber, avocado, edamame, crispy onion. Contains raw fish.</p>
-        <div class="mcard__foot">
-          <button class="btn btn--brand btn--sm">Add to Order</button>
-          <button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
-        </div></div>
+        </div>
       </article>
 
       <article class="mcard" data-tags="spicy cooked">
         <div class="mcard__media"><span class="mcard__num">No. 03</span><div class="mcard__tags"><span class="tag tag--r">Spicy</span></div><img src="assets/menu/fiery-chicken.jpg" alt="Fiery Chicken sushi burrito with crispy chicken and crispy jalapeño" loading="lazy"></div><div class="mcard__body">
-        <div class="mcard__head"><h3>Fiery Chicken</h3><span class="mcard__price">$16.95</span></div>
+        <div class="mcard__head"><h3>Fiery Chicken</h3></div><span class="mcard__price">$16.95</span>
         <p class="mcard__desc">Crispy chicken, lettuce, cucumber, red cabbage, carrot, sweet corn, crispy jalapeño with spicy mayo and eel sauce.</p>
-        <div class="mcard__foot">
-          <button class="btn btn--brand btn--sm">Add to Order</button>
-          <button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
-        </div></div>
+        </div>
       </article>
 
       <article class="mcard" data-tags="popular cooked">
         <div class="mcard__media"><span class="mcard__num">No. 04</span><div class="mcard__tags"><span class="tag">Chef's Pick</span></div><img src="assets/menu/dragon-ball.jpg" alt="Dragon Ball sushi burrito with broiled eel and shrimp tempura" loading="lazy"></div><div class="mcard__body">
-        <div class="mcard__head"><h3>Dragon Ball</h3><span class="mcard__price">$18.95</span></div>
+        <div class="mcard__head"><h3>Dragon Ball</h3></div><span class="mcard__price">$18.95</span>
         <p class="mcard__desc">Broiled eel, shrimp tempura, cucumber, avocado with spicy mayo and eel sauce.</p>
-        <div class="mcard__foot">
-          <button class="btn btn--brand btn--sm">Add to Order</button>
-          <button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
-        </div></div>
+        </div>
       </article>
 
       <article class="mcard" data-tags="cooked">
         <div class="mcard__media"><span class="mcard__num">No. 05</span><div class="mcard__tags"><span class="tag">Classic</span></div><img src="assets/menu/california.jpg" alt="California sushi burrito with surimi crab, cucumber and avocado" loading="lazy"></div><div class="mcard__body">
-        <div class="mcard__head"><h3>California</h3><span class="mcard__price">$14.95</span></div>
+        <div class="mcard__head"><h3>California</h3></div><span class="mcard__price">$14.95</span>
         <p class="mcard__desc">Surimi crab, cucumber, avocado, masago. The OG. A clean, cool classic.</p>
-        <div class="mcard__foot">
-          <button class="btn btn--brand btn--sm">Add to Order</button>
-          <button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
-        </div></div>
+        </div>
       </article>
 
       <article class="mcard" data-tags="cooked spicy">
         <div class="mcard__media"><span class="mcard__num">No. 06</span><div class="mcard__tags"><span class="tag tag--o">Local</span></div><img src="assets/menu/seahawks.jpg" alt="Seahawks sushi burrito with crispy salmon and red cabbage" loading="lazy"></div><div class="mcard__body">
-        <div class="mcard__head"><h3>Seahawks</h3><span class="mcard__price">$17.95</span></div>
+        <div class="mcard__head"><h3>Seahawks</h3></div><span class="mcard__price">$17.95</span>
         <p class="mcard__desc">Crispy salmon, cucumber, avocado, red cabbage, onion, carrot with spicy mayo and eel sauce.</p>
-        <div class="mcard__foot">
-          <button class="btn btn--brand btn--sm">Add to Order</button>
-          <button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
-        </div></div>
+        </div>
       </article>
 
       <article class="mcard" data-tags="spicy raw">
         <div class="mcard__media"><span class="mcard__num">No. 07</span><div class="mcard__tags"><span class="tag tag--r">Spicy</span><span class="tag">Raw</span></div><img src="assets/menu/ninja.jpg" alt="Ninja sushi burrito with poké ahi tuna, cucumber and avocado" loading="lazy"></div><div class="mcard__body">
-        <div class="mcard__head"><h3>Ninja</h3><span class="mcard__price">$18.95</span></div>
+        <div class="mcard__head"><h3>Ninja</h3></div><span class="mcard__price">$18.95</span>
         <p class="mcard__desc">Poké ahi tuna, cucumber, avocado, masago, crispy onion, sweet onion with spicy mayo. Contains raw fish.</p>
-        <div class="mcard__foot">
-          <button class="btn btn--brand btn--sm">Add to Order</button>
-          <button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
-        </div></div>
+        </div>
       </article>
 
       <article class="mcard" data-tags="popular raw">
         <div class="mcard__media"><span class="mcard__num">No. 08</span><div class="mcard__tags"><span class="tag tag--o">Fan Favorite</span><span class="tag">Raw</span></div><img src="assets/menu/dancing-salmon.jpg" alt="Dancing Salmon sushi burrito with poké salmon, masago and seaweed" loading="lazy"></div><div class="mcard__body">
-        <div class="mcard__head"><h3>Dancing Salmon</h3><span class="mcard__price">$19.95</span></div>
+        <div class="mcard__head"><h3>Dancing Salmon</h3></div><span class="mcard__price">$19.95</span>
         <p class="mcard__desc">Poké salmon, avocado, green leaf lettuce, masago, cucumber, onion chip with spicy mayo. Contains raw fish.</p>
-        <div class="mcard__foot">
-          <button class="btn btn--brand btn--sm">Add to Order</button>
-          <button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
-        </div></div>
+        </div>
       </article>
 
       <article class="mcard" data-tags="vegan">
         <div class="mcard__media"><span class="mcard__num">No. 09</span><div class="mcard__tags"><span class="tag">Vegan</span></div><img src="assets/menu/vegan.jpg" alt="Vegan sushi burrito with tofu, avocado, sweet corn and carrot" loading="lazy"></div><div class="mcard__body">
-        <div class="mcard__head"><h3>Vegan</h3><span class="mcard__price">$15.95</span></div>
+        <div class="mcard__head"><h3>Vegan</h3></div><span class="mcard__price">$15.95</span>
         <p class="mcard__desc">Poké tofu, cucumber, red onion, avocado, sweet corn, carrot, crispy onion. All plants, all flavor.</p>
-        <div class="mcard__foot">
-          <button class="btn btn--brand btn--sm">Add to Order</button>
-          <button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
-        </div></div>
+        </div>
       </article>
 
     </div>
@@ -500,21 +553,21 @@
     </div>
 
     <div class="mgrid">
-      <article class="mcard" data-tags="popular raw"><div class="mcard__media"><div class="mcard__tags"><span class="tag tag--o">Popular</span></div><img src="assets/menu/bowl-salmon.jpg" alt="Poké salmon bowl with masago and avocado over sushi rice" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Poké Salmon Bowl</h3><span class="mcard__price">$16.95</span></div><p class="mcard__desc">Fresh poké salmon over sushi rice with unlimited toppings and your choice of sauce.</p><div class="mcard__foot"><button class="btn btn--brand btn--sm">Add to Order</button><button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button></div></div></article>
+      <article class="mcard" data-tags="popular raw"><div class="mcard__media"><div class="mcard__tags"><span class="tag tag--o">Popular</span></div><img src="assets/menu/bowl-salmon.jpg" alt="Poké salmon bowl with masago and avocado over sushi rice" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Poké Salmon Bowl</h3></div><span class="mcard__price">$16.95</span><p class="mcard__desc">Fresh poké salmon over sushi rice with unlimited toppings and your choice of sauce.</p></div></article>
 
-      <article class="mcard" data-tags="spicy raw"><div class="mcard__media"><div class="mcard__tags"><span class="tag tag--r">Spicy</span></div><img src="assets/menu/bowl-salmon-2.jpg" alt="Spicy salmon poké bowl with masago, ginger and avocado" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Spicy Salmon Bowl</h3><span class="mcard__price">$16.95</span></div><p class="mcard__desc">Spicy poké salmon, sushi rice, unlimited toppings. Brings the heat.</p><div class="mcard__foot"><button class="btn btn--brand btn--sm">Add to Order</button><button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button></div></div></article>
+      <article class="mcard" data-tags="spicy raw"><div class="mcard__media"><div class="mcard__tags"><span class="tag tag--r">Spicy</span></div><img src="assets/menu/bowl-salmon-2.jpg" alt="Spicy salmon poké bowl with masago, ginger and avocado" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Spicy Salmon Bowl</h3></div><span class="mcard__price">$16.95</span><p class="mcard__desc">Spicy poké salmon, sushi rice, unlimited toppings. Brings the heat.</p></div></article>
 
-      <article class="mcard" data-tags="popular raw"><div class="mcard__media"><div class="mcard__tags"><span class="tag tag--o">Popular</span></div><img src="assets/menu/bowl-tuna.jpg" alt="Poké ahi tuna bowl with masago, carrots and avocado" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Poké Tuna Bowl</h3><span class="mcard__price">$17.95</span></div><p class="mcard__desc">Fresh ahi tuna, sushi rice, unlimited toppings. Clean and bold.</p><div class="mcard__foot"><button class="btn btn--brand btn--sm">Add to Order</button><button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button></div></div></article>
+      <article class="mcard" data-tags="popular raw"><div class="mcard__media"><div class="mcard__tags"><span class="tag tag--o">Popular</span></div><img src="assets/menu/bowl-tuna.jpg" alt="Poké ahi tuna bowl with masago, carrots and avocado" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Poké Tuna Bowl</h3></div><span class="mcard__price">$17.95</span><p class="mcard__desc">Fresh ahi tuna, sushi rice, unlimited toppings. Clean and bold.</p></div></article>
 
-      <article class="mcard" data-tags="spicy raw"><div class="mcard__media"><div class="mcard__tags"><span class="tag tag--r">Spicy</span></div><img src="assets/menu/bowl-spicy-tuna.jpg" alt="Spicy ahi tuna bowl with masago, sweet corn, red cabbage and avocado" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Spicy Tuna Bowl</h3><span class="mcard__price">$17.95</span></div><p class="mcard__desc">Spicy ahi tuna, sushi rice, unlimited toppings. Turn up the heat.</p><div class="mcard__foot"><button class="btn btn--brand btn--sm">Add to Order</button><button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button></div></div></article>
+      <article class="mcard" data-tags="spicy raw"><div class="mcard__media"><div class="mcard__tags"><span class="tag tag--r">Spicy</span></div><img src="assets/menu/bowl-spicy-tuna.jpg" alt="Spicy ahi tuna bowl with masago, sweet corn, red cabbage and avocado" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Spicy Tuna Bowl</h3></div><span class="mcard__price">$17.95</span><p class="mcard__desc">Spicy ahi tuna, sushi rice, unlimited toppings. Turn up the heat.</p></div></article>
 
-      <article class="mcard" data-tags="cooked"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Cooked</span></div><img src="assets/menu/bowl-spicy-tuna.jpg" alt="Sushi rice bowl with fresh toppings and avocado" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Shrimp Tempura Bowl</h3><span class="mcard__price">$16.95</span></div><p class="mcard__desc">Crispy shrimp tempura, sushi rice, unlimited toppings. Crunch lovers unite.</p><div class="mcard__foot"><button class="btn btn--brand btn--sm">Add to Order</button><button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button></div></div></article>
+      <article class="mcard" data-tags="cooked"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Cooked</span></div><img src="assets/menu/bowl-spicy-tuna.jpg" alt="Sushi rice bowl with fresh toppings and avocado" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Shrimp Tempura Bowl</h3></div><span class="mcard__price">$16.95</span><p class="mcard__desc">Crispy shrimp tempura, sushi rice, unlimited toppings. Crunch lovers unite.</p></div></article>
 
-      <article class="mcard" data-tags="cooked"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Chef's Pick</span></div><img src="assets/menu/bowl-tuna.jpg" alt="Sushi rice bowl with fresh toppings" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Broiled Eel Bowl</h3><span class="mcard__price">$18.95</span></div><p class="mcard__desc">Broiled eel, sushi rice, unlimited toppings with eel sauce drizzle.</p><div class="mcard__foot"><button class="btn btn--brand btn--sm">Add to Order</button><button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button></div></div></article>
+      <article class="mcard" data-tags="cooked"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Chef's Pick</span></div><img src="assets/menu/bowl-tuna.jpg" alt="Sushi rice bowl with fresh toppings" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Broiled Eel Bowl</h3></div><span class="mcard__price">$18.95</span><p class="mcard__desc">Broiled eel, sushi rice, unlimited toppings with eel sauce drizzle.</p></div></article>
 
-      <article class="mcard" data-tags="cooked"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Cooked</span></div><img src="assets/menu/karaage.jpg" alt="Crispy Japanese fried chicken karaage" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Chicken Karaage Bowl</h3><span class="mcard__price">$15.95</span></div><p class="mcard__desc">Japanese fried chicken, sushi rice, unlimited toppings. Crispy, juicy, craveable.</p><div class="mcard__foot"><button class="btn btn--brand btn--sm">Add to Order</button><button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button></div></div></article>
+      <article class="mcard" data-tags="cooked"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Cooked</span></div><img src="assets/menu/karaage.jpg" alt="Crispy Japanese fried chicken karaage" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Chicken Karaage Bowl</h3></div><span class="mcard__price">$15.95</span><p class="mcard__desc">Japanese fried chicken, sushi rice, unlimited toppings. Crispy, juicy, craveable.</p></div></article>
 
-      <article class="mcard" data-tags="vegan"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Vegan</span></div><img src="assets/menu/vegan.jpg" alt="Vegan tofu bowl base ingredients" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Tofu Bowl</h3><span class="mcard__price">$14.95</span></div><p class="mcard__desc">Marinated tofu, sushi rice, unlimited toppings. 100% vegan, 100% flavor.</p><div class="mcard__foot"><button class="btn btn--brand btn--sm">Add to Order</button><button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button></div></div></article>
+      <article class="mcard" data-tags="vegan"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Vegan</span></div><img src="assets/menu/vegan.jpg" alt="Vegan tofu bowl base ingredients" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Tofu Bowl</h3></div><span class="mcard__price">$14.95</span><p class="mcard__desc">Marinated tofu, sushi rice, unlimited toppings. 100% vegan, 100% flavor.</p></div></article>
     </div>
   </section>
 
@@ -528,17 +581,17 @@
     </div>
 
     <div class="mgrid">
-      <article class="mcard" data-tags="popular raw"><div class="mcard__media"><div class="mcard__tags"><span class="tag tag--o">Popular</span></div><img src="assets/menu/bowl-salmon.jpg" alt="Fresh poké salmon over green leaf lettuce" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Poké Salmon Salad</h3><span class="mcard__price">$16.95</span></div><p class="mcard__desc">Fresh poké salmon over green leaf lettuce with unlimited toppings and your choice of sauce.</p><div class="mcard__foot"><button class="btn btn--brand btn--sm">Add to Order</button><button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button></div></div></article>
+      <article class="mcard" data-tags="popular raw"><div class="mcard__media"><div class="mcard__tags"><span class="tag tag--o">Popular</span></div><img src="assets/menu/bowl-salmon.jpg" alt="Fresh poké salmon over green leaf lettuce" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Poké Salmon Salad</h3></div><span class="mcard__price">$16.95</span><p class="mcard__desc">Fresh poké salmon over green leaf lettuce with unlimited toppings and your choice of sauce.</p></div></article>
 
-      <article class="mcard" data-tags="spicy raw"><div class="mcard__media"><div class="mcard__tags"><span class="tag tag--r">Spicy</span></div><img src="assets/menu/bowl-spicy-tuna.jpg" alt="Spicy ahi tuna salad bowl" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Spicy Tuna Salad</h3><span class="mcard__price">$17.95</span></div><p class="mcard__desc">Spicy ahi tuna, crisp lettuce, unlimited toppings. Light but loaded.</p><div class="mcard__foot"><button class="btn btn--brand btn--sm">Add to Order</button><button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button></div></div></article>
+      <article class="mcard" data-tags="spicy raw"><div class="mcard__media"><div class="mcard__tags"><span class="tag tag--r">Spicy</span></div><img src="assets/menu/bowl-spicy-tuna.jpg" alt="Spicy ahi tuna salad bowl" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Spicy Tuna Salad</h3></div><span class="mcard__price">$17.95</span><p class="mcard__desc">Spicy ahi tuna, crisp lettuce, unlimited toppings. Light but loaded.</p></div></article>
 
-      <article class="mcard" data-tags="cooked"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Cooked</span></div><img src="assets/menu/calamari.jpg" alt="Crispy tempura salad" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Shrimp Tempura Salad</h3><span class="mcard__price">$16.95</span></div><p class="mcard__desc">Crispy shrimp tempura over green leaf lettuce with unlimited toppings.</p><div class="mcard__foot"><button class="btn btn--brand btn--sm">Add to Order</button><button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button></div></div></article>
+      <article class="mcard" data-tags="cooked"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Cooked</span></div><img src="assets/menu/calamari.jpg" alt="Crispy tempura salad" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Shrimp Tempura Salad</h3></div><span class="mcard__price">$16.95</span><p class="mcard__desc">Crispy shrimp tempura over green leaf lettuce with unlimited toppings.</p></div></article>
 
-      <article class="mcard" data-tags="cooked"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Cooked</span></div><img src="assets/menu/bowl-salmon-2.jpg" alt="Crispy salmon salad bowl" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Crispy Salmon Salad</h3><span class="mcard__price">$16.95</span></div><p class="mcard__desc">Crispy salmon over crisp greens, unlimited toppings, any sauce.</p><div class="mcard__foot"><button class="btn btn--brand btn--sm">Add to Order</button><button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button></div></div></article>
+      <article class="mcard" data-tags="cooked"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Cooked</span></div><img src="assets/menu/bowl-salmon-2.jpg" alt="Crispy salmon salad bowl" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Crispy Salmon Salad</h3></div><span class="mcard__price">$16.95</span><p class="mcard__desc">Crispy salmon over crisp greens, unlimited toppings, any sauce.</p></div></article>
 
-      <article class="mcard" data-tags="cooked"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Cooked</span></div><img src="assets/menu/karaage.jpg" alt="Chicken karaage salad" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Chicken Karaage Salad</h3><span class="mcard__price">$15.95</span></div><p class="mcard__desc">Japanese fried chicken over crisp greens with unlimited toppings.</p><div class="mcard__foot"><button class="btn btn--brand btn--sm">Add to Order</button><button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button></div></div></article>
+      <article class="mcard" data-tags="cooked"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Cooked</span></div><img src="assets/menu/karaage.jpg" alt="Chicken karaage salad" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Chicken Karaage Salad</h3></div><span class="mcard__price">$15.95</span><p class="mcard__desc">Japanese fried chicken over crisp greens with unlimited toppings.</p></div></article>
 
-      <article class="mcard" data-tags="vegan"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Vegan</span></div><img src="assets/menu/vegan.jpg" alt="Vegan tofu salad" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Tofu Salad</h3><span class="mcard__price">$14.95</span></div><p class="mcard__desc">Marinated tofu, green leaf lettuce, unlimited toppings. All plants.</p><div class="mcard__foot"><button class="btn btn--brand btn--sm">Add to Order</button><button class="mcard__info" aria-label="Item info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button></div></div></article>
+      <article class="mcard" data-tags="vegan"><div class="mcard__media"><div class="mcard__tags"><span class="tag">Vegan</span></div><img src="assets/menu/vegan.jpg" alt="Vegan tofu salad" loading="lazy"></div><div class="mcard__body"><div class="mcard__head"><h3>Tofu Salad</h3></div><span class="mcard__price">$14.95</span><p class="mcard__desc">Marinated tofu, green leaf lettuce, unlimited toppings. All plants.</p></div></article>
     </div>
   </section>
 
@@ -560,15 +613,15 @@
         <p class="featured-side__label">Featured Side</p>
         <h3>Takoyaki</h3>
         <p>Six golden octopus balls. Crispy outside, melty inside. Topped with bonito flakes that dance, takoyaki sauce, and a swirl of Japanese mayo. Why regulars come back.</p>
-        <div class="featured-side__foot"><span class="featured-side__price">$7.95</span><button class="btn btn--brand btn--sm">Add to Order</button></div>
+        <div class="featured-side__foot"><span class="featured-side__price">$7.95</span></div>
       </div>
     </div>
 
     <div class="mlist">
-      <div class="mitem"><div class="mitem__l"><h4>Pork Gyoza</h4><span>Dairy-free · 6 pieces</span></div><div class="mitem__r">$6.95</div></div>
-      <div class="mitem"><div class="mitem__l"><h4>Chicken Karaage</h4><span>Dairy-free · Japanese fried chicken</span></div><div class="mitem__r">$7.95</div></div>
-      <div class="mitem"><div class="mitem__l"><h4>Harumaki Spring Rolls</h4><span>Dairy-free · Gluten-free · 4 pieces</span></div><div class="mitem__r">$6.95</div></div>
-      <div class="mitem"><div class="mitem__l"><h4>Miso Soup</h4><span>Hot · Traditional tofu &amp; seaweed</span></div><div class="mitem__r">$3.95</div></div>
+      <div class="mitem"><div class="mitem__l"><h4>Pork Gyoza</h4><span>Dairy-free · 6 pieces</span></div><div class="mitem__r"><span class="mitem__price">$6.95</span></div></div>
+      <div class="mitem"><div class="mitem__l"><h4>Chicken Karaage</h4><span>Dairy-free · Japanese fried chicken</span></div><div class="mitem__r"><span class="mitem__price">$7.95</span></div></div>
+      <div class="mitem"><div class="mitem__l"><h4>Harumaki Spring Rolls</h4><span>Dairy-free · Gluten-free · 4 pieces</span></div><div class="mitem__r"><span class="mitem__price">$6.95</span></div></div>
+      <div class="mitem"><div class="mitem__l"><h4>Miso Soup</h4><span>Hot · Traditional tofu &amp; seaweed</span></div><div class="mitem__r"><span class="mitem__price">$3.95</span></div></div>
     </div>
   </section>
 
@@ -590,15 +643,15 @@
         <p class="featured-side__label">Featured Drink</p>
         <h3>Ramune Japanese Soda</h3>
         <p>That iconic marble-sealed bottle. Pop the plunger, watch the marble drop, sip strawberry-sweet bubbles. Multiple flavors. Pure Tokyo.</p>
-        <div class="featured-side__foot"><span class="featured-side__price">$3.95</span><button class="btn btn--brand btn--sm">Add to Order</button></div>
+        <div class="featured-side__foot"><span class="featured-side__price">$3.95</span></div>
       </div>
     </div>
 
     <div class="mlist">
-      <div class="mitem"><div class="mitem__l"><h4>Hawaiian Sun</h4><span>Tropical juice · Classic flavors</span></div><div class="mitem__r">$2.95</div></div>
-      <div class="mitem"><div class="mitem__l"><h4>Fountain Soda</h4><span>Coke products · Free refills in-store</span></div><div class="mitem__r">$2.95</div></div>
-      <div class="mitem"><div class="mitem__l"><h4>Coconut Water</h4><span>100% natural</span></div><div class="mitem__r">$3.95</div></div>
-      <div class="mitem"><div class="mitem__l"><h4>Bottled Water</h4><span>Still · Chilled</span></div><div class="mitem__r">$1.95</div></div>
+      <div class="mitem"><div class="mitem__l"><h4>Hawaiian Sun</h4><span>Tropical juice · Classic flavors</span></div><div class="mitem__r"><span class="mitem__price">$2.95</span></div></div>
+      <div class="mitem"><div class="mitem__l"><h4>Fountain Soda</h4><span>Coke products · Free refills in-store</span></div><div class="mitem__r"><span class="mitem__price">$2.95</span></div></div>
+      <div class="mitem"><div class="mitem__l"><h4>Coconut Water</h4><span>100% natural</span></div><div class="mitem__r"><span class="mitem__price">$3.95</span></div></div>
+      <div class="mitem"><div class="mitem__l"><h4>Bottled Water</h4><span>Still · Chilled</span></div><div class="mitem__r"><span class="mitem__price">$1.95</span></div></div>
     </div>
   </section>
 
@@ -679,7 +732,7 @@
         <div class="byo-protein"><div class="byo-protein__l"><span class="byo-protein__name">Broiled Eel</span><span class="byo-protein__cal">245 cal</span></div></div>
         <div class="byo-protein"><div class="byo-protein__l"><span class="byo-protein__name">Tempura Shrimp</span><span class="byo-protein__cal">116 cal</span></div></div>
         <div class="byo-protein"><div class="byo-protein__l"><span class="byo-protein__name">Crispy Salmon</span><span class="byo-protein__cal">240 cal</span></div></div>
-        <div class="byo-protein"><div class="byo-protein__l"><span class="byo-protein__name">Karaage <span style="font-weight:500;color:rgba(255,255,255,.65)">(Crispy Chicken)</span></span><span class="byo-protein__cal">323 cal</span></div></div>
+        <div class="byo-protein"><div class="byo-protein__l"><span class="byo-protein__name">Karaage <span style="font-weight:500;color:var(--ink4)">(Crispy Chicken)</span></span><span class="byo-protein__cal">323 cal</span></div></div>
         <div class="byo-protein"><div class="byo-protein__l"><span class="byo-protein__name">Surimi Crab</span><span class="byo-protein__cal">233 cal</span></div></div>
         <div class="byo-protein"><div class="byo-protein__l"><span class="byo-protein__name">Tofu <span class="byo-protein__icons"><span class="veg">●</span><span class="gf">●</span></span></span><span class="byo-protein__cal">60 cal</span></div></div>
       </div>
@@ -869,11 +922,22 @@
 
 <!-- Mobile sticky order bar -->
 <div class="mobile-bar" hidden>
-  <a href="locations.html" class="btn btn--outline btn--sm">Find Us</a>
-  <a href="#signature" class="btn btn--brand btn--sm">Order Now →</a>
+  <a href="locations.html" class="btn btn--brand btn--sm">Order Now →</a>
 </div>
 
 <script>
+// Move tags into card body on mobile
+if (window.matchMedia('(max-width:768px)').matches) {
+  document.querySelectorAll('.mcard').forEach(card => {
+    const tags = card.querySelector('.mcard__tags');
+    if (!tags || !tags.children.length) return;
+    const clone = tags.cloneNode(true);
+    clone.classList.replace('mcard__tags', 'mcard__tags--mobile');
+    const desc = card.querySelector('.mcard__desc');
+    if (desc) desc.after(clone);
+  });
+}
+
 // Nav scroll state
 const nav = document.getElementById('nav');
 const toTop = document.getElementById('toTop');
