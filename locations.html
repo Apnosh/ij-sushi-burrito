@@ -115,7 +115,8 @@
   display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;
 }
 .locs-filter__inner::-webkit-scrollbar{display:none}
-@media(max-width:900px){.locs-filter__inner{padding:14px 28px}}
+@media(max-width:900px){.locs-filter__inner{padding:14px 20px;flex-wrap:wrap;justify-content:center;overflow-x:visible}}
+@media(max-width:900px){.locs-filter a{padding:10px 16px;font-size:11px;min-height:38px}}
 .locs-filter a{
   flex-shrink:0;padding:13px 22px;min-height:44px;display:inline-flex;align-items:center;
   border-radius:99px;

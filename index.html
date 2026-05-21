@@ -371,11 +371,45 @@
   color:var(--ink3);background:#fff;
   padding:6px 12px;border-radius:99px;border:1px solid var(--ink7);
 }
-.roll-card__tag{
-  position:absolute;top:18px;right:20px;z-index:2;
+.roll-card__star{
+  position:absolute;top:12px;right:14px;z-index:2;
 }
+.roll-card__tags{
+  display:inline-flex;gap:5px;align-items:center;margin-left:6px;vertical-align:middle;
+}
+.roll-card__name-row{
+  display:flex;align-items:center;gap:6px;margin-bottom:8px;
+}
+.tag-icon{
+  width:22px;height:22px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 6px rgba(0,0,0,.15);
+  border:1.5px solid #fff;flex-shrink:0;
+}
+.tag-icon svg{width:12px;height:12px}
+.tag-icon--veg{background:#4a8c3f}
+.tag-icon--fish{background:#8b2332}
+.tag-icon--gf{background:#d4782f}
+.tag-icon--star{
+  background:none;border:none;box-shadow:none;
+  width:30px;height:30px;border-radius:0;
+}
+.tag-icon--star svg{width:30px;height:30px}
+/* Legend */
+.lineup__legend{
+  display:flex;gap:20px;justify-content:center;flex-wrap:wrap;
+  padding:20px 48px 0;max-width:1320px;margin:0 auto;
+}
+.legend__item{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;color:var(--ink3);letter-spacing:.04em;
+}
+.legend__item .tag-icon{width:20px;height:20px;border-width:1.5px}
+.legend__item .tag-icon svg{width:11px;height:11px}
+.legend__item .tag-icon--star{width:24px;height:24px;border:none}
+.legend__item .tag-icon--star svg{width:24px;height:24px}
 .roll-card__body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column}
-.roll-card__name{font-family:var(--fm-display);font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--ink);margin-bottom:8px;line-height:1.05}
+.roll-card__name{font-family:var(--fm-display);font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--ink);margin-bottom:0;line-height:1.05}
 .roll-card__desc{font-size:12.5px;color:var(--ink3);line-height:1.55;margin-bottom:16px;flex:1}
 .roll-card__foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:12px;border-top:1px solid var(--ink7)}
 .roll-card__price{font-family:var(--fm-display);font-size:18px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
@@ -963,13 +997,19 @@
     flex-shrink:0;align-self:center;
   }
   .roll-card__num{display:none}
-  .roll-card__tag{display:none}
-  .roll-card__tag--mobile{display:inline-flex;align-self:flex-start;font-size:9px;padding:3px 8px;box-shadow:none;border:none;margin-bottom:8px}
+  .roll-card__star{top:8px;right:8px}
+  .roll-card__star .tag-icon--star{width:30px;height:30px}
+  .roll-card__star .tag-icon--star svg{width:30px;height:30px}
+  .roll-card__tags .tag-icon{width:20px;height:20px;border-width:1.5px;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+  .roll-card__tags .tag-icon svg{width:11px;height:11px}
+  .lineup__legend{padding:16px 20px 0;gap:14px}
+  .legend__item{font-size:11px;gap:6px}
   .roll-card__body{
     padding:16px 20px;
     justify-content:center;
   }
-  .roll-card__name{font-size:16px;margin-bottom:4px}
+  .roll-card__name{font-size:16px;margin-bottom:0}
+  .roll-card__name-row{margin-bottom:4px;gap:5px}
   .roll-card__desc{
     font-size:12px;line-height:1.45;
     margin-bottom:8px;
@@ -1240,10 +1280,10 @@
       <div class="roll-card__media">
         <img src="assets/menu/sumo-crunch.jpg" alt="Sumo Crunch sushi burrito with shrimp tempura, surimi crab and avocado" loading="lazy">
         <span class="roll-card__num">No. 01</span>
-        <span class="roll-card__tag tag tag--ink">⭐ Top</span>
+        <span class="roll-card__star"><span class="tag-icon tag-icon--star"><svg viewBox="0 0 40 40"><path d="M20 1l6.2 12.6L40 15.7l-10 9.8 2.4 13.7L20 32.6 7.6 39.2 10 25.5 0 15.7l13.8-2.1z" fill="#c41230"/><text x="20" y="24" text-anchor="middle" fill="#fff" font-size="10" font-weight="900" font-family="system-ui,sans-serif">TOP</text></svg></span></span>
       </div>
       <div class="roll-card__body">
-        <h3 class="roll-card__name">Sumo Crunch</h3>
+        <div class="roll-card__name-row"><h3 class="roll-card__name">Sumo Crunch</h3></div>
         <p class="roll-card__desc">Shrimp tempura, surimi crab, avocado, cucumber, onion chip, tempura flakes with eel sauce.</p>
         <div class="roll-card__foot"><span class="roll-card__price">$16.95</span></div>
       </div>
@@ -1253,10 +1293,10 @@
       <div class="roll-card__media">
         <img src="assets/menu/dancing-salmon.jpg" alt="Dancing Salmon sushi burrito with poké salmon, masago and seaweed" loading="lazy">
         <span class="roll-card__num">No. 02</span>
-        <span class="roll-card__tag tag tag--ink">⭐ Top</span>
+        <span class="roll-card__star"><span class="tag-icon tag-icon--star"><svg viewBox="0 0 40 40"><path d="M20 1l6.2 12.6L40 15.7l-10 9.8 2.4 13.7L20 32.6 7.6 39.2 10 25.5 0 15.7l13.8-2.1z" fill="#c41230"/><text x="20" y="24" text-anchor="middle" fill="#fff" font-size="10" font-weight="900" font-family="system-ui,sans-serif">TOP</text></svg></span></span>
       </div>
       <div class="roll-card__body">
-        <h3 class="roll-card__name">Dancing Salmon</h3>
+        <div class="roll-card__name-row"><h3 class="roll-card__name">Dancing Salmon</h3><div class="roll-card__tags"><span class="tag-icon tag-icon--fish"><svg viewBox="0 0 20 20" fill="#fff"><ellipse cx="14" cy="10" rx="1.2" ry="1.2"/><path d="M1 10l5-5c2.5 0 5 1.5 7 5-2 3.5-4.5 5-7 5zm13.5-4C16.5 6 19 8 19 10s-2.5 4-4.5 4c1-1.2 1.5-2.5 1.5-4s-.5-2.8-1.5-4z"/></svg></span></div></div>
         <p class="roll-card__desc">Poké salmon, avocado, green leaf lettuce, masago, cucumber, onion chip with spicy mayo. Contains raw fish.</p>
         <div class="roll-card__foot"><span class="roll-card__price">$19.95</span></div>
       </div>
@@ -1268,7 +1308,7 @@
         <span class="roll-card__num">No. 03</span>
       </div>
       <div class="roll-card__body">
-        <h3 class="roll-card__name">Fiery Chicken</h3>
+        <div class="roll-card__name-row"><h3 class="roll-card__name">Fiery Chicken</h3></div>
         <p class="roll-card__desc">Crispy chicken, lettuce, cucumber, red cabbage, carrot, sweet corn, crispy jalapeño with spicy mayo &amp; eel sauce.</p>
         <div class="roll-card__foot"><span class="roll-card__price">$16.95</span></div>
       </div>
@@ -1278,10 +1318,9 @@
       <div class="roll-card__media">
         <img src="assets/menu/ninja.jpg" alt="Ninja sushi burrito with poké ahi tuna, cucumber and avocado" loading="lazy">
         <span class="roll-card__num">No. 04</span>
-        <span class="roll-card__tag tag tag--red">Raw Fish</span>
       </div>
       <div class="roll-card__body">
-        <h3 class="roll-card__name">Ninja</h3>
+        <div class="roll-card__name-row"><h3 class="roll-card__name">Ninja</h3><div class="roll-card__tags"><span class="tag-icon tag-icon--fish"><svg viewBox="0 0 20 20" fill="#fff"><ellipse cx="14" cy="10" rx="1.2" ry="1.2"/><path d="M1 10l5-5c2.5 0 5 1.5 7 5-2 3.5-4.5 5-7 5zm13.5-4C16.5 6 19 8 19 10s-2.5 4-4.5 4c1-1.2 1.5-2.5 1.5-4s-.5-2.8-1.5-4z"/></svg></span></div></div>
         <p class="roll-card__desc">Poké ahi tuna, cucumber, avocado, masago, crispy &amp; sweet onion with spicy mayo. Contains raw fish.</p>
         <div class="roll-card__foot"><span class="roll-card__price">$18.95</span></div>
       </div>
@@ -1291,10 +1330,9 @@
       <div class="roll-card__media">
         <img src="assets/menu/evergreen.jpg" alt="Evergreen sushi burrito with spicy ahi tuna, edamame and lettuce" loading="lazy">
         <span class="roll-card__num">No. 05</span>
-        <span class="roll-card__tag tag tag--red">Raw Fish</span>
       </div>
       <div class="roll-card__body">
-        <h3 class="roll-card__name">Evergreen</h3>
+        <div class="roll-card__name-row"><h3 class="roll-card__name">Evergreen</h3><div class="roll-card__tags"><span class="tag-icon tag-icon--fish"><svg viewBox="0 0 20 20" fill="#fff"><ellipse cx="14" cy="10" rx="1.2" ry="1.2"/><path d="M1 10l5-5c2.5 0 5 1.5 7 5-2 3.5-4.5 5-7 5zm13.5-4C16.5 6 19 8 19 10s-2.5 4-4.5 4c1-1.2 1.5-2.5 1.5-4s-.5-2.8-1.5-4z"/></svg></span></div></div>
         <p class="roll-card__desc">Spicy ahi tuna, lettuce, cucumber, avocado, edamame, crispy onion. Contains raw fish.</p>
         <div class="roll-card__foot"><span class="roll-card__price">$17.95</span></div>
       </div>
@@ -1306,7 +1344,7 @@
         <span class="roll-card__num">No. 06</span>
       </div>
       <div class="roll-card__body">
-        <h3 class="roll-card__name">Dragon Ball</h3>
+        <div class="roll-card__name-row"><h3 class="roll-card__name">Dragon Ball</h3></div>
         <p class="roll-card__desc">Broiled eel, shrimp tempura, cucumber, avocado with spicy mayo and eel sauce.</p>
         <div class="roll-card__foot"><span class="roll-card__price">$18.95</span></div>
       </div>
@@ -1316,10 +1354,9 @@
       <div class="roll-card__media">
         <img src="assets/menu/vegan.jpg" alt="Vegan sushi burrito with tofu, avocado, sweet corn and carrot" loading="lazy">
         <span class="roll-card__num">No. 07</span>
-        <span class="roll-card__tag tag tag--brand">Vegetarian</span>
       </div>
       <div class="roll-card__body">
-        <h3 class="roll-card__name">Vegan</h3>
+        <div class="roll-card__name-row"><h3 class="roll-card__name">Vegan</h3><div class="roll-card__tags"><span class="tag-icon tag-icon--veg"><svg viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17Q6 9 15 4"/><path d="M15 4Q9 4 6 9" fill="#fff" fill-opacity=".3"/><path d="M15 4Q15 11 8 14" fill="#fff" fill-opacity=".3"/></svg></span></div></div>
         <p class="roll-card__desc">Poké tofu, cucumber, red onion, avocado, sweet corn, carrot, crispy onion. All plants, all flavor.</p>
         <div class="roll-card__foot"><span class="roll-card__price">$15.95</span></div>
       </div>
@@ -1329,10 +1366,9 @@
       <div class="roll-card__media">
         <img src="assets/menu/california.jpg" alt="California sushi burrito with surimi crab, cucumber and avocado" loading="lazy">
         <span class="roll-card__num">No. 08</span>
-        <span class="roll-card__tag tag tag--orange">Gluten Free</span>
       </div>
       <div class="roll-card__body">
-        <h3 class="roll-card__name">California</h3>
+        <div class="roll-card__name-row"><h3 class="roll-card__name">California</h3><div class="roll-card__tags"><span class="tag-icon tag-icon--gf"><svg viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M10 3v11M7 5l3 3.5L13 5M7 9l3 3.5L13 9"/><line x1="4" y1="17" x2="16" y2="3" stroke-width="2.5"/></svg></span></div></div>
         <p class="roll-card__desc">Surimi crab, cucumber, avocado, masago. The OG. A clean, cool classic.</p>
         <div class="roll-card__foot"><span class="roll-card__price">$14.95</span></div>
       </div>
@@ -1344,12 +1380,18 @@
         <span class="roll-card__num">No. 09</span>
       </div>
       <div class="roll-card__body">
-        <h3 class="roll-card__name">Seahawks</h3>
+        <div class="roll-card__name-row"><h3 class="roll-card__name">Seahawks</h3></div>
         <p class="roll-card__desc">Crispy salmon, cucumber, avocado, red cabbage, onion, carrot with spicy mayo and eel sauce.</p>
         <div class="roll-card__foot"><span class="roll-card__price">$17.95</span></div>
       </div>
     </article>
 
+  </div>
+  <div class="lineup__legend">
+    <div class="legend__item"><span class="tag-icon tag-icon--star"><svg viewBox="0 0 40 40"><path d="M20 1l6.2 12.6L40 15.7l-10 9.8 2.4 13.7L20 32.6 7.6 39.2 10 25.5 0 15.7l13.8-2.1z" fill="#c41230"/><text x="20" y="24" text-anchor="middle" fill="#fff" font-size="10" font-weight="900" font-family="system-ui,sans-serif">TOP</text></svg></span><span>Top List</span></div>
+    <div class="legend__item"><span class="tag-icon tag-icon--fish"><svg viewBox="0 0 20 20" fill="#fff"><ellipse cx="14" cy="10" rx="1.2" ry="1.2"/><path d="M1 10l5-5c2.5 0 5 1.5 7 5-2 3.5-4.5 5-7 5zm13.5-4C16.5 6 19 8 19 10s-2.5 4-4.5 4c1-1.2 1.5-2.5 1.5-4s-.5-2.8-1.5-4z"/></svg></span><span>Contains Raw Fish</span></div>
+    <div class="legend__item"><span class="tag-icon tag-icon--veg"><svg viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17Q6 9 15 4"/><path d="M15 4Q9 4 6 9" fill="#fff" fill-opacity=".3"/><path d="M15 4Q15 11 8 14" fill="#fff" fill-opacity=".3"/></svg></span><span>Vegetarian</span></div>
+    <div class="legend__item"><span class="tag-icon tag-icon--gf"><svg viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M10 3v11M7 5l3 3.5L13 5M7 9l3 3.5L13 9"/><line x1="4" y1="17" x2="16" y2="3" stroke-width="2.5"/></svg></span><span>Gluten Free</span></div>
   </div>
   <div class="lineup__nav">
     <span class="lineup__hint">Drag · Scroll · Tap <span class="arrow">→</span></span>
@@ -1705,18 +1747,7 @@
 
 
 <script>
-// Move roll card tags into body on mobile
-if (window.matchMedia('(max-width:900px)').matches) {
-  document.querySelectorAll('.roll-card').forEach(card => {
-    const tag = card.querySelector('.roll-card__tag');
-    if (!tag) return;
-    const clone = tag.cloneNode(true);
-    clone.classList.remove('roll-card__tag');
-    clone.classList.add('roll-card__tag--mobile');
-    const desc = card.querySelector('.roll-card__desc');
-    if (desc) desc.after(clone);
-  });
-}
+// Tags are now in the body HTML; no JS cloning needed.
 
 // Reveal on scroll
 const io = new IntersectionObserver((entries) => {
